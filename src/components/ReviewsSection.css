@@ -1,0 +1,17 @@
+.reviews-section {
+  padding: 60px 0;
+  background-image: url(https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Asigură-te că ai imaginea în directorul public */
+  background-attachment: fixed; /* Efect de parallax */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  margin-bottom: 20px;
+}
+
+.reviews-section p {
+  margin-bottom: 20px;
+}

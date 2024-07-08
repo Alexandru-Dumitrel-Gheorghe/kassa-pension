@@ -1,0 +1,23 @@
+.navbar-custom {
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-hidden {
+  background-color: transparent;
+  opacity: 9;
+}
+
+.navbar-visible {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 9;
+}
+
+.navbar-brand-custom {
+  font-size: 2rem; /* Mărimea textului "Kassa" */
+  font-weight: bold;
+}
+
+.navbar-button {
+  font-size: 0.9rem;
+  font-weight: bold;
+}

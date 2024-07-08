@@ -1,0 +1,20 @@
+.contact-section {
+  padding: 40px 0;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.contact-section h5 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.contact-section p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-section p a:hover {
+  text-decoration: underline;
+}

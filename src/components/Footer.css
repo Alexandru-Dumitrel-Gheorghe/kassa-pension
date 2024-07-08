@@ -1,0 +1,13 @@
+.footer {
+  background-color: #2e856e;
+  color: white;
+  padding: 10px 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.text-right {
+  text-align: right;
+}
