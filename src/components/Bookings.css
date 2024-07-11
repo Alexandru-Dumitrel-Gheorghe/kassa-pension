@@ -1,0 +1,120 @@
+.bookings-page {
+  padding: 2em;
+  background-color: #226b5f;
+  color: #ffcc80;
+}
+
+.table {
+  width: 100%;
+  margin-top: 1em;
+  background-color: #ffcc80;
+  color: #ffffff;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75em;
+  border: 1px solid #ffcc80; /* Culoare pentru margini */
+}
+
+.table th {
+  background-color: #ffcc80;
+  color: #333333;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #3b3b3b;
+}
+
+.delete-button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.delete-button:hover {
+  background-color: #c9302c;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .table th,
+  .table td {
+    font-size: 0.8rem;
+  }
+
+  .delete-button {
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookings-page {
+    padding: 1em;
+    width: 100vw;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.7rem;
+  }
+
+  .delete-button {
+    padding: 3px 6px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .table td {
+    display: block;
+    text-align: left;
+    font-size: 0.8rem;
+    border: none;
+    padding: 0.5rem 0;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bookings-page {
+    padding: 1em;
+    width: 100vw;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.6rem;
+  }
+
+  .delete-button {
+    padding: 2px 4px;
+  }
+}

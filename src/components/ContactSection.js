@@ -5,48 +5,48 @@ import "./ContactSection.css";
 const ContactSection = () => {
   return (
     <div className="contact-section">
-      <Container>
+      <Container className="text-center">
         <Row>
-          <Col md={4}>
-            <h5>Pensiunea Kassa Brasov</h5>
+          <Col md={4} className="text-center">
+            <h5>Pensiunea Kassa Brașov</h5>
             <p>
               IJsbaanpad 12
               <br />
-              1076 CV Brasov
+              1076 CV Brașov
               <br />
-              Romania
+              România
               <br />
-              <a href="tel:+31202405055">+49 20 240 50 55</a>
+              <a href="tel:+40202405055">+40 20 240 50 55</a>
               <br />
-              <a href="mailto:info@olympichotel.nl">info@kassa.com</a>
+              <a href="mailto:info@kassa.com">info@kassa.com</a>
               <br />
               KVK: 68681453
               <br />
-              VAT: NL8575.47.422B01
+              TVA: NL8575.47.422B01
             </p>
           </Col>
-          <Col md={4}>
-            <h5>More</h5>
+          <Col md={4} className="text-center">
+            <h5>Mai multe</h5>
             <p>
-              <a href="#">FAQ</a>
+              <a href="/">FAQ</a>
               <br />
-              <a href="#">Privacy Statement</a>
+              <a href="/">Declarație de confidențialitate</a>
               <br />
-              <a href="#">Terms & Conditions</a>
+              <a href="/">Termeni și condiții</a>
               <br />
-              <a href="#">Houserules</a>
+              <a href="/">Reguli interne</a>
               <br />
-              <a href="#">Manage cookies</a>
+              <a href="/">Gestionați cookie-urile</a>
             </p>
           </Col>
-          <Col md={4}>
-            <h5>Language</h5>
+          <Col md={4} className="text-center">
+            <h5>Limba</h5>
             <p>
-              <a href="#">Română</a>
+              <a href="/">Română</a>
               <br />
-              <a href="#">English</a>
+              <a href="/">Engleză</a>
               <br />
-              <a href="#">Deutsch</a>
+              <a href="/">Germană</a>
             </p>
           </Col>
         </Row>

@@ -1,17 +1,18 @@
-.header {
+.room-header {
   position: relative;
-  background-image: url(https://images.unsplash.com/photo-1695282339113-c6edef867cfa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Imaginea trebuie să fie în directorul public */
+  background-image: url("https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #d4af37;
+  color: white;
   text-align: center;
+  color: #d4af37;
 }
 
-.header::before {
+.room-header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -30,42 +31,14 @@
   border-radius: 10px;
 }
 
-.header-content h1 {
-  margin-bottom: 20px; /* Adaugă spațiu între h1 și p */
-}
-
 /* Media Queries */
 @media (max-width: 1200px) {
-  .header {
-    height: 80vh;
-  }
-
-  .header-content {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 992px) {
-  .header {
-    height: 70vh;
-  }
-
-  .header-content {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    height: 60vh;
-  }
-
-  .header-content {
-    padding: 8px;
+  .room-header {
+    height: 50vh;
   }
 
   .header-content h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .header-content p {
@@ -73,20 +46,44 @@
   }
 }
 
-@media (max-width: 576px) {
-  .header {
-    height: 50vh;
-  }
-
-  .header-content {
-    padding: 5px;
+@media (max-width: 992px) {
+  .room-header {
+    height: 45vh;
   }
 
   .header-content h1 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 
   .header-content p {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .room-header {
+    height: 40vh;
+  }
+
+  .header-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .room-header {
+    height: 35vh;
+  }
+
+  .header-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .header-content p {
+    font-size: 0.7rem;
   }
 }

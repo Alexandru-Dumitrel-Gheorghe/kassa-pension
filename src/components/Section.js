@@ -9,19 +9,23 @@ const Section = () => {
         <Row className="text-center mb-4">
           <Col>
             <h2 className="section-title">Simte energia</h2>
-            <h1 className="section-heading">Pensiunea Kassa Brasov</h1>
+            <h1 className="section-heading">
+              Bine ați venit la Pensiunea Kassa,
+            </h1>
             <p className="section-description">
-              Simte energia vibrantă! Lângă Stadionul Olimpic, înconjurat de
-              terenuri sportive și de idilicul Canal Stadion, vei găsi Hotelul
-              Olympic. O locație unică, cu 309 camere decorate stilat pentru
-              sportivi, călători de afaceri și de agrement. Vino și
-              experimentează facilitățile noastre de primă clasă, paturile
-              confortabile, bucătăria sănătoasă și sălile de întâlnire
-              inspiratoare.
+              Situată în inima Brașovului, unde tradiția și confortul modern se
+              întâlnesc pentru a vă oferi o experiență de neuitat. Pensiunea
+              noastră este locul ideal pentru a descoperi frumusețile istorice
+              și naturale ale acestui oraș minunat și pentru a vă relaxa într-un
+              cadru primitor și elegant.La Pensiunea Kassa, punem accent pe
+              confortul și satisfacția oaspeților noștri. Camerele noastre sunt
+              amenajate cu gust și echipate cu toate facilitățile necesare
+              pentru a vă asigura un sejur plăcut. Fiecare cameră dispune de
+              paturi confortabile, băi moderne, televiziune prin cablu și acces
+              gratuit la internet Wi-Fi.
             </p>
           </Col>
         </Row>
-        <Row className="text-center"></Row>
       </Container>
     </div>
   );

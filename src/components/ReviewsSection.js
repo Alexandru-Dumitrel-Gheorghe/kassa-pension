@@ -14,10 +14,10 @@ const ReviewsSection = () => {
         <Row className="text-center mb-4">
           <Col md={4}>
             <p>
-              <strong>tripadvisor</strong>
+              <strong>TripAdvisor</strong>
             </p>
             <p>4.0/5.0</p>
-            <p>* personalul a fost foarte util *</p>
+            <p>* Personalul a fost foarte util *</p>
           </Col>
           <Col md={4}>
             <p>
@@ -25,7 +25,7 @@ const ReviewsSection = () => {
             </p>
             <p>8.6/10</p>
             <p>
-              "vederea este uimitoare, una dintre cele mai bune pe care le-am
+              "Vederea este uimitoare, una dintre cele mai bune pe care le-am
               avut."
             </p>
           </Col>

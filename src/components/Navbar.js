@@ -35,16 +35,13 @@ const MyNavbar = () => {
           Kassa
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse
-          id="basic-navbar-nav"
-          className="justify-content-center"
-        >
-          <Nav>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="justify-content-center">
             <Nav.Link as={Link} to="/">
-              Pagina Principală
+              Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/gallery">
-              Galerie
+            <Nav.Link as={Link} to="/rooms">
+              Rooms
             </Nav.Link>
             <Nav.Link as={Link} to="/about">
               About
@@ -52,11 +49,44 @@ const MyNavbar = () => {
             <Nav.Link as={Link} to="/contact">
               Contact
             </Nav.Link>
+            <div className="navbar-buttons d-lg-none">
+              <Button
+                variant="outline-light"
+                className="navbar-button"
+                as={Link}
+                to="/book-now"
+              >
+                BOOK NOW
+              </Button>
+              <Button
+                variant="outline-light"
+                className="navbar-button"
+                as={Link}
+                to="/login"
+              >
+                Login
+              </Button>
+            </div>
           </Nav>
         </Navbar.Collapse>
-        <Button variant="outline-light" className="navbar-button">
-          BOOK NOW
-        </Button>
+        <div className="navbar-buttons d-none d-lg-flex">
+          <Button
+            variant="outline-light"
+            className="navbar-button"
+            as={Link}
+            to="/book-now"
+          >
+            BOOK NOW
+          </Button>
+          <Button
+            variant="outline-light"
+            className="navbar-button"
+            as={Link}
+            to="/login"
+          >
+            Login
+          </Button>
+        </div>
       </Container>
     </Navbar>
   );

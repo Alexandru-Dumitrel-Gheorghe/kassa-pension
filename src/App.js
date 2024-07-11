@@ -1,12 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Gallery from "./pages/Gallery";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
+import ContactPage from "./pages/ContactPages"; // Ensure this path is correct
+import Rooms from "./pages/Rooms";
+import BookNow from "./pages/BookNow";
+import Login from "./pages/Login";
+import Bookings from "./pages/Bookings";
 import MyNavbar from "./components/Navbar";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css"; // Importăm fișierul CSS global
 
 const App = () => {
   return (
@@ -14,9 +19,13 @@ const App = () => {
       <MyNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<ContactPage />} />{" "}
+        {/* Updated route for the new Contact page */}
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/book-now" element={<BookNow />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/bookings" element={<Bookings />} />
       </Routes>
       <ContactSection />
       <Footer />

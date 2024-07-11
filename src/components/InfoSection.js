@@ -8,13 +8,13 @@ const InfoSection = () => {
       <Container>
         <Row className="text-center mb-4">
           <Col>
-            <h2>Rezervările directe beneficiază de:</h2>
+            <h2>Rezervările directe beneficiază de</h2>
           </Col>
         </Row>
         <Row className="text-center mb-4">
           <Col md={4}>
             <p>
-              <strong>Affordable parking</strong>
+              <strong>Parcare accesibilă</strong>
             </p>
           </Col>
           <Col md={4}>

@@ -4,20 +4,81 @@
 
 .navbar-hidden {
   background-color: transparent;
-  opacity: 9;
+  opacity: 0.8;
 }
 
 .navbar-visible {
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 9;
+  background-color: #2e856e;
+  opacity: 1;
 }
 
 .navbar-brand-custom {
-  font-size: 2rem; /* Mărimea textului "Kassa" */
+  font-size: 0.9rem; /* Aceeași dimensiune ca butoanele */
   font-weight: bold;
+  font-family: inherit; /* Același font ca butoanele */
+  color: #d4af37 !important ; /* Culoarea textului */
+}
+
+.nav-link {
+  color: #d4af37 !important; /* Culoarea textului pentru link-urile din navbar */
 }
 
 .navbar-button {
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   font-weight: bold;
+  margin-left: 10px;
+  color: #d4af37 !important; /* Culoarea textului pentru butoane */
+  border-color: #d4af37 !important; /* Culoarea marginii butoanelor */
+}
+
+.navbar-button:hover {
+  background-color: #d4af37; /* Culoarea de fundal la hover */
+  color: #2e856e; /* Culoarea textului la hover */
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar-buttons {
+    display: none; /* Ascunde butoanele navbar pe ecranele mici */
+  }
+
+  .navbar-collapse {
+    background-color: #2e856e; /* Fundal solid pentru meniul deschis */
+  }
+
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+    padding: 10px;
+    color: #d4af37 !important; /* Culoarea textului pentru link-urile din navbar pe ecrane mici */
+  }
+
+  .navbar-buttons.d-lg-none {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .navbar-buttons.d-lg-none .navbar-button {
+    margin-bottom: 10px; /* Adaugă spațiu între butoane */
+  }
+
+  .navbar-buttons.d-none {
+    display: none !important; /* Ascunde butoanele mari pe ecranele mici */
+  }
+
+  .navbar-custom.navbar-hidden {
+    background-color: #2e856e;
+    opacity: 1;
+  }
 }

@@ -12,11 +12,11 @@ const CardSection = () => {
               variant="top"
               src="https://plus.unsplash.com/premium_photo-1661676056771-f6c2711249e0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
-            <Card.Body>
-              <Card.Title>Card Titlu 1</Card.Title>
-              <Card.Text className="card-hover-text">
-                Text suplimentar pentru Card 1.
-              </Card.Text>
+            <Card.Body className="card-body">
+              <Card.Title className="card-title">Camera de Lux</Card.Title>
+              <div className="card-hover-text">
+                Răsfățați-vă într-o cameră luxoasă cu facilități de top.
+              </div>
             </Card.Body>
           </Card>
         </Col>
@@ -26,11 +26,11 @@ const CardSection = () => {
               variant="top"
               src="https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
-            <Card.Body>
-              <Card.Title>Card Titlu 2</Card.Title>
-              <Card.Text className="card-hover-text">
-                Text suplimentar pentru Card 2.
-              </Card.Text>
+            <Card.Body className="card-body">
+              <Card.Title className="card-title">Servicii Premium</Card.Title>
+              <div className="card-hover-text">
+                Bucurați-vă de cele mai bune servicii pe durata șederii dvs.
+              </div>
             </Card.Body>
           </Card>
         </Col>
@@ -40,11 +40,11 @@ const CardSection = () => {
               variant="top"
               src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
-            <Card.Body>
-              <Card.Title>Card Titlu 3</Card.Title>
-              <Card.Text className="card-hover-text">
-                Text suplimentar pentru Card 3.
-              </Card.Text>
+            <Card.Body className="card-body">
+              <Card.Title className="card-title">Facilități Moderne</Card.Title>
+              <div className="card-hover-text">
+                Camere echipate cu facilități moderne pentru confortul dvs.
+              </div>
             </Card.Body>
           </Card>
         </Col>

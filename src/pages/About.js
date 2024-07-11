@@ -1,14 +1,13 @@
 import React from "react";
 import MyNavbar from "../components/Navbar";
+import HeaderAbout from "../components/about/HeaderAbout"; // Importă componenta HeaderAbout
+import "../components/about/HeaderAbout.css"; // Importă fișierul CSS pentru componenta HeaderAbout
 
 const About = () => {
   return (
     <div>
       <MyNavbar />
-      <div className="container mt-5">
-        <h1>About</h1>
-        <p>Informații despre noi.</p>
-      </div>
+      <HeaderAbout />
     </div>
   );
 };

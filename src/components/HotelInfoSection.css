@@ -1,0 +1,26 @@
+.hotel-info-section {
+  background-color: #226b5f;
+  padding: 82px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hotel-info-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hotel-info-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.hotel-info-content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.hotel-info-content p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}

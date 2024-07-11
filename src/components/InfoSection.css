@@ -1,6 +1,7 @@
 .info-section {
+  position: relative;
   padding: 60px 0;
-  background-image: url(https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Asigură-te că ai imaginea în directorul public */
+  background-image: url(https://images.unsplash.com/photo-1440151050977-247552660a3b?q=80&w=1990&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Asigură-te că ai imaginea în directorul public */
   background-attachment: fixed; /* Efect de parallax */
   background-size: cover;
   background-position: center;
@@ -8,8 +9,27 @@
   text-align: center;
 }
 
+.info-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Strat semi-transparent negru */
+  z-index: 1;
+}
+
+.info-section h2,
+.info-section p,
+.info-section .btn-primary {
+  position: relative;
+  z-index: 2;
+}
+
 .info-section h2 {
   margin-bottom: 20px;
+  color: #d4af37;
 }
 
 .info-section p {
@@ -19,4 +39,69 @@
 .info-section .btn-primary {
   background-color: #d4af37; /* Culoare aurie pentru buton */
   border: none;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .info-section {
+    padding: 50px 0;
+  }
+
+  .info-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .info-section p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .info-section {
+    padding: 40px 0;
+  }
+
+  .info-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-section {
+    padding: 30px 0;
+  }
+
+  .info-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .info-section p {
+    font-size: 0.9rem;
+  }
+
+  .info-section .btn-primary {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .info-section {
+    padding: 20px 0;
+  }
+
+  .info-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .info-section p {
+    font-size: 0.8rem;
+  }
+
+  .info-section .btn-primary {
+    font-size: 0.9rem;
+  }
 }
