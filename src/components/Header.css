@@ -28,10 +28,21 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
+  opacity: 0; /* Hidden initially */
+  transform: translateY(20px); /* Initial position for slide-in effect */
+  animation: fadeInUp 1s forwards; /* Animation properties */
 }
 
 .header-content h1 {
   margin-bottom: 20px; /* Adaugă spațiu între h1 și p */
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Media Queries */

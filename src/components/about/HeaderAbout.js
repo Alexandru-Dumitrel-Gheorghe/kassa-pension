@@ -1,10 +1,10 @@
 import React from "react";
-import "./HeaderAbout.css"; // Asigură-te că calea este corectă
+import "./HeaderAbout.css"; // Ensure the path is correct
 
 const HeaderAbout = () => {
   return (
-    <div className="room-header">
-      <div className="header-content">
+    <div className="about-header">
+      <div className="about-header-content">
         <h1>About Us</h1>
       </div>
     </div>

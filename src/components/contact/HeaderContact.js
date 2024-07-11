@@ -4,8 +4,8 @@ import "./HeaderContact.css"; // Ensure the path is correct
 
 const HeaderContact = () => {
   return (
-    <div className="room-header">
-      <div className="header-content">
+    <div className="contact-header">
+      <div className="contact-header-content">
         <h1>Contact Us</h1>
       </div>
     </div>
