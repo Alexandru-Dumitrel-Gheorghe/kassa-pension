@@ -1,5 +1,5 @@
 import React from "react";
-import "./HeaderAbout.css"; // Ensure the path is correct
+import "./HeaderAbout.css";
 
 const HeaderAbout = () => {
   return (

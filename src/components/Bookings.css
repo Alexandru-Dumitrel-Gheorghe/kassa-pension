@@ -2,6 +2,7 @@
   padding: 2em;
   background-color: #226b5f;
   color: #ffcc80;
+  margin-top: 0px; /* Adaugă un margin-top pentru a separa conținutul de navbar */
 }
 
 .table {
@@ -10,6 +11,7 @@
   background-color: #ffcc80;
   color: #ffffff;
   border-collapse: collapse;
+  margin-top: 80px;
 }
 
 .table th,
@@ -37,6 +39,24 @@
 }
 
 .delete-button:hover {
+  background-color: #c9302c;
+}
+
+/* Stil pentru butonul de logout */
+.logout-button {
+  display: block;
+  margin: 1em auto;
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.logout-button:hover {
   background-color: #c9302c;
 }
 

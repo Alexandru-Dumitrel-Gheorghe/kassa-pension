@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Logout from "../components/Logout/Logout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components/Bookings.css";
 
@@ -22,6 +23,7 @@ const Bookings = () => {
 
   return (
     <div className="bookings-page">
+      <Logout /> {/* Poziționarea butonului logout deasupra tabelului */}
       <h2>Bookings</h2>
       <div className="table-responsive">
         <table className="table">

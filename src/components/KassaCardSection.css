@@ -1,0 +1,123 @@
+.kassa-card-section {
+  display: flex !important;
+  flex-direction: column !important; /* Changed from row to column */
+  align-items: center !important; /* Center the cards */
+  padding: 40px 20px !important;
+}
+
+.kassa-card {
+  position: relative !important;
+  background-color: #226b5f !important;
+  color: white !important;
+  border-radius: 10px !important;
+  margin: 30px 0 !important; /* Increased margin for vertical spacing */
+  width: 90% !important; /* Adjusted width to fit the container */
+  max-width: 1200px !important; /* Maximum width for larger screens */
+  height: 340px !important; /* Set height to make cards square */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden !important;
+}
+
+.kassa-card img {
+  width: 100% !important;
+  height: 100% !important; /* Ensure image takes full height */
+  object-fit: cover !important;
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+.kassa-card-title {
+  position: absolute !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  font-size: 1.5em !important;
+  z-index: 2 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+.kassa-card-hover-text {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: #d4af37 !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease-in-out !important;
+  text-align: center !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.kassa-card:hover img {
+  opacity: 0.3 !important;
+}
+
+.kassa-card:hover .kassa-card-hover-text {
+  opacity: 1 !important;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .kassa-card {
+    width: 100% !important; /* Full width for smaller screens */
+    height: auto !important; /* Adjust height for smaller screens */
+  }
+
+  .kassa-card img {
+    height: auto !important; /* Adjust image height for smaller screens */
+  }
+
+  .kassa-card-hover-text {
+    padding: 10px !important; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .kassa-card {
+    width: 100% !important; /* Full width for smaller screens */
+    height: auto !important; /* Adjust height for smaller screens */
+  }
+
+  .kassa-card img {
+    height: auto !important; /* Adjust image height for smaller screens */
+  }
+
+  .kassa-card-hover-text {
+    padding: 10px !important; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .kassa-card {
+    width: 100% !important; /* Full width for smaller screens */
+    height: auto !important; /* Adjust height for smaller screens */
+  }
+
+  .kassa-card img {
+    height: auto !important; /* Adjust image height for smaller screens */
+  }
+
+  .kassa-card-hover-text {
+    padding: 10px !important; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .kassa-card {
+    width: 100% !important; /* Full width for smaller screens */
+    height: auto !important; /* Adjust height for smaller screens */
+  }
+
+  .kassa-card img {
+    height: auto !important; /* Adjust image height for smaller screens */
+  }
+
+  .kassa-card-hover-text {
+    padding: 10px !important; /* Adjust padding for smaller screens */
+  }
+}
