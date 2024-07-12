@@ -1,5 +1,10 @@
 .navbar-custom {
+  height: 60px; /* Ajustează înălțimea navbarului */
+  display: flex;
+  align-items: center;
   transition: background-color 0.3s ease, opacity 0.3s ease;
+  width: 100%;
+  overflow: hidden; /* Previne overflow-ul orizontal */
 }
 
 .navbar-hidden {

@@ -5,6 +5,7 @@ import "./Navbar.css";
 
 const MyNavbar = () => {
   const [navbarVisible, setNavbarVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > window.innerHeight) {
@@ -12,6 +13,14 @@ const MyNavbar = () => {
     } else {
       setNavbarVisible(false);
     }
+  };
+
+  const handleToggle = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleClose = () => {
+    setExpanded(false);
   };
 
   useEffect(() => {
@@ -23,6 +32,9 @@ const MyNavbar = () => {
 
   return (
     <Navbar
+      expanded={expanded}
+      onToggle={handleToggle}
+      onSelect={handleClose}
       className={`navbar-custom ${
         navbarVisible ? "navbar-visible" : "navbar-hidden"
       }`}
@@ -37,16 +49,16 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-center">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/" onClick={handleClose}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/rooms">
+            <Nav.Link as={Link} to="/rooms" onClick={handleClose}>
               Rooms
             </Nav.Link>
-            <Nav.Link as={Link} to="/about">
+            <Nav.Link as={Link} to="/about" onClick={handleClose}>
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact">
+            <Nav.Link as={Link} to="/contact" onClick={handleClose}>
               Contact
             </Nav.Link>
             <div className="navbar-buttons d-lg-none">
@@ -55,6 +67,7 @@ const MyNavbar = () => {
                 className="navbar-button"
                 as={Link}
                 to="/book-now"
+                onClick={handleClose}
               >
                 BOOK NOW
               </Button>
@@ -63,6 +76,7 @@ const MyNavbar = () => {
                 className="navbar-button"
                 as={Link}
                 to="/login"
+                onClick={handleClose}
               >
                 Login
               </Button>

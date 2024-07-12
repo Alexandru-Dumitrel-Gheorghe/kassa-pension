@@ -47,7 +47,24 @@ const ContactForm = () => {
           <h2>Contact Form #03</h2>
         </Col>
       </Row>
-
+      <Row className="custom-contact-info">
+        <Col md={3} className="custom-info-item">
+          <i className="bi bi-geo-alt"></i>
+          <p>198 West 21th Street, Suite 721 New York, NY 10016</p>
+        </Col>
+        <Col md={3} className="custom-info-item">
+          <i className="bi bi-telephone"></i>
+          <p>+ 1235 2355 98</p>
+        </Col>
+        <Col md={3} className="custom-info-item">
+          <i className="bi bi-envelope"></i>
+          <p>info@yoursite.com</p>
+        </Col>
+        <Col md={3} className="custom-info-item">
+          <i className="bi bi-globe"></i>
+          <p>yoursite.com</p>
+        </Col>
+      </Row>
       <Row className="custom-contact-form-row">
         <Col md={6} className="custom-contact-form">
           <h2>Contact Us</h2>
@@ -60,6 +77,7 @@ const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                autoComplete="name"
               />
             </Form.Group>
             <Form.Group controlId="formEmail">
@@ -70,6 +88,7 @@ const ContactForm = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                autoComplete="email"
               />
             </Form.Group>
             <Form.Group controlId="formSubject">
@@ -80,6 +99,7 @@ const ContactForm = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
+                autoComplete="subject"
               />
             </Form.Group>
             <Form.Group controlId="formMessage">
@@ -91,15 +111,18 @@ const ContactForm = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                autoComplete="message"
               />
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              className="custom-submit-button"
-            >
-              Send Message
-            </Button>
+            <div className="custom-submit-button-container">
+              <Button
+                variant="primary"
+                type="submit"
+                className="custom-submit-button"
+              >
+                Send Message
+              </Button>
+            </div>
           </Form>
         </Col>
         <Col md={6} className="custom-contact-image">

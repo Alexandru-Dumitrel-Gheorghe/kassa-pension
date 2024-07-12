@@ -1,3 +1,10 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .login-page {
   position: relative;
   display: flex;
@@ -8,6 +15,7 @@
   background-image: url(https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
   background-size: cover;
   background-position: center;
+  padding: 0 20px;
 }
 
 .login-page::before {
@@ -25,25 +33,25 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 300px; /* Ajustăm lățimea pentru a fi mai mică */
+  max-width: 350px; /* Adjust width for better appearance */
   padding: 20px;
-  background: rgba(7, 59, 59, 0.9); /* Fundal cu transparență */
+  background: rgba(7, 59, 59, 0.9); /* Background with transparency */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra formularului */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
 }
 
 .login-form h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 20px; /* Mărime font pentru titlu */
-  color: #ffcc80; /* Culoare text */
+  font-size: 24px; /* Font size for title */
+  color: #ffcc80; /* Text color */
 }
 
 .login-form label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
-  color: #ffcc80; /* Culoare text */
+  color: #ffcc80; /* Text color */
 }
 
 .login-form input {
@@ -53,20 +61,20 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  font-size: 14px; /* Mărime font pentru input */
+  font-size: 14px; /* Font size for input */
 }
 
 .login-form button {
   display: block;
-  width: 50%;
+  width: 100%;
   padding: 10px;
-  margin: 20px auto 0;
+  margin: 20px 0 0;
   background: #ffcc80;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px; /* Mărime font pentru button */
+  font-size: 14px; /* Font size for button */
   font-weight: bold;
 }
 
@@ -86,7 +94,7 @@
   }
 
   .login-form h2 {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .login-form input {
@@ -109,14 +117,14 @@
   }
 
   .login-form h2 {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .login-form input {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .login-form button {
-    font-size: 10px;
+    font-size: 12px;
   }
 }

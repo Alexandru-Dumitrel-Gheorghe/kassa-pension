@@ -1,7 +1,17 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
 .custom-contact-container {
-  padding: 80px 0;
+  padding: 80px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .custom-contact-header {
@@ -47,6 +57,9 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
+  width: 100%; /* Make sure the form takes full width of the container */
+  max-width: 600px; /* Optional: Set a max width for better appearance */
+  margin: 0 auto; /* Center the form horizontally */
 }
 
 .custom-contact-form h2 {
