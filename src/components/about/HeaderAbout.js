@@ -5,7 +5,7 @@ const HeaderAbout = () => {
   return (
     <div className="about-header">
       <div className="about-header-content">
-        <h1>About Us</h1>
+        <h1>Despre Noi</h1>
       </div>
     </div>
   );

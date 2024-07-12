@@ -4,7 +4,7 @@
 
 .room-card {
   display: flex;
-  margin-bottom: 80px !important; /* Increased space between cards */
+  margin-bottom: 100px !important; /* Increased space between cards */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

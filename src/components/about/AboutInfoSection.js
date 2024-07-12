@@ -6,14 +6,20 @@ const AboutInfoSection = () => {
   return (
     <div className="about-info-section">
       <div className="about-info-content">
-        <h2>Discover Our Story</h2>
+        <h2>Bine ați venit în casa noastra.</h2>
         <p>
-          Welcome to Pensiunea Kassa, where comfort meets tranquility in the
-          heart of Brașov. Our establishment offers the perfect retreat from the
-          hustle and bustle of city life. Enjoy stunning views from our modern
-          rooms, carefully designed with attention to detail to ensure your
-          utmost relaxation. Each room reflects the local charm, providing a
-          serene escape for our guests.
+          Kassa se află în Bran, la 2,1 km de Castelul Bran, și oferă WiFi
+          gratuit, o grădină și parcare privată gratuită. Această proprietate cu
+          vedere la grădină pune la dispoziție un balcon. Această casă de
+          vacanță cu terasă și vedere la râu include 7 dormitoare, un living, un
+          televizor cu ecran plat, o bucătărie utilată, cu frigider și mașină de
+          spălat vase, precum și 7 băi cu duș. Această casă de vacanță pune la
+          dispoziția oaspeților prosoape și lenjerie de pat. Această casă de
+          vacanță pune la dispoziție un grătar. Această proprietate are un salon
+          de zi comun, iar în apropiere oaspeții pot desfășura activități precum
+          schi. Kassa se află la 15 km de Dino Parc și la 31 km de Piaţa
+          Sfatului. Cel mai apropiat aeroport este Aeroportul Internațional
+          Brașov-Ghimbav, situat la 28 km de Kassa.
         </p>
       </div>
     </div>

@@ -9,7 +9,7 @@ const KassaCardSection = () => {
         <Col md={6} className="mb-4">
           <div className="kassa-card">
             <img
-              src="https://plus.unsplash.com/premium_photo-1661676056771-f6c2711249e0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229650.jpg?k=6a440b9105b3e30114175bd0df4e5a17215a74f4d9f508096db70333f59e3659&o=&hp=1"
               alt="Camera de Lux"
             />
             <div className="kassa-card-title">Camera de Lux</div>
@@ -21,7 +21,7 @@ const KassaCardSection = () => {
         <Col md={6} className="mb-4">
           <div className="kassa-card">
             <img
-              src="https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229625.jpg?k=0b9ebe916f419bce7c7c2ce2e8f910091cd5a3a38c0171ba269d5098e8edd15b&o=&hp=1"
               alt="Servicii Premium"
             />
             <div className="kassa-card-title">Servicii Premium</div>
@@ -33,7 +33,7 @@ const KassaCardSection = () => {
         <Col md={6} className="mb-4">
           <div className="kassa-card">
             <img
-              src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229569.jpg?k=1d6feb261ec3218271b48c63dd2104ecfc0d45d75f9c6cf54a2193ea7518ff99&o=&hp=1"
               alt="Facilități Moderne"
             />
             <div className="kassa-card-title">Facilități Moderne</div>
@@ -45,7 +45,7 @@ const KassaCardSection = () => {
         <Col md={6} className="mb-4">
           <div className="kassa-card">
             <img
-              src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/554933423.jpg?k=a114d1eb74df051761c655bd12fda96c8bf62f79ba1a1ff339535d473cd64833&o=&hp=1"
               alt="Atmosferă Relaxantă"
             />
             <div className="kassa-card-title">Atmosferă Relaxantă</div>

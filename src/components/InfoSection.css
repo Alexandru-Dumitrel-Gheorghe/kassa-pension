@@ -1,7 +1,7 @@
 .info-section {
   position: relative;
   padding: 60px 0;
-  background-image: url(https://images.unsplash.com/photo-1440151050977-247552660a3b?q=80&w=1990&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Asigură-te că ai imaginea în directorul public */
+  background-image: url(https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229632.jpg?k=22c4c786d1734fff5a9fab4bb5ddd2be6c1a24f8770def966718a696a3236922&o=&hp=1); /* Asigură-te că ai imaginea în directorul public */
   background-attachment: fixed; /* Efect de parallax */
   background-size: cover;
   background-position: center;

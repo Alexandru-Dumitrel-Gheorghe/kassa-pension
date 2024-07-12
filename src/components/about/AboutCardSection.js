@@ -6,31 +6,31 @@ const AboutCardSection = () => {
   const cards = [
     {
       image:
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Parking",
+        "https://i.pinimg.com/originals/b1/e8/fe/b1e8fef7031b037cf8e061b3a0f760b2.jpg",
+      title: "Castelul Bran",
       description:
-        "Parkplätze stehen am Frans-Otten-Stadion, 100 m vom Hotel entfernt, zur Verfügung. Die Kosten betragen 17,50 € pro Tag. Sie können bei uns im Voraus buchen!",
+        " Acesta este unul dintre cele mai renumite și vizitate castele din Europa de Est, atrăgând anual mii de turiști din întreaga lume. Castelul a fost construit între anii 1377 și 1388 de către sașii din Transilvania, cu scopul de a apăra trecătoarea Bran de invaziile otomane și de a proteja rutele comerciale dintre Transilvania și Țara Românească.",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title 2",
+        "https://i.pinimg.com/originals/bf/35/5f/bf355f1d99ae4e2ecba8924ff0336b4e.jpg",
+      title: "Valea Bangaleasa",
       description:
-        "Parkplätze stehen am Frans-Otten-Stadion, 100 m vom Hotel entfernt, zur Verfügung. Die Kosten betragen 17,50 € pro Tag. Sie können bei uns im Voraus buchen!",
+        "Vaela Bângăleasa este un loc ideal pentru iubitorii de natură și pentru cei care caută să se bucure de activități în aer liber, cum ar fi drumețiile, ciclismul montan și observarea faunei sălbatice. Regiunea este acoperită de păduri de foioase și conifere, oferind habitat pentru diverse specii de animale și plante.!",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1529290130-4ca3753253ae?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title 3",
+        "https://zigzagprinromania.com/blog/wp-content/uploads/2017/09/IUL_9337-logo.jpg",
+      title: "Dino Parc",
       description:
-        "Parkplätze stehen am Frans-Otten-Stadion, 100 m vom Hotel entfernt, zur Verfügung. Die Kosten betragen 17,50 € pro Tag. Sie können bei uns im Voraus buchen!",
+        "Dino Parc Râșnov este un parc tematic situat în orașul Râșnov, județul Brașov, România, dedicat în întregime dinozaurilor și lumii preistorice. Inaugurat în 2015, Dino Parc Râșnov este cel mai mare parc cu dinozauri din sud-estul Europei și oferă o experiență educativă și distractivă pentru vizitatori de toate vârstele.",
     },
     {
       image:
-        "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Title 4",
+        "https://aventi.ro/wp-content/uploads/2021/06/159897516_3641997725909866_6009049929475981135_n.jpeg",
+      title: "Parcul de aventură Cheile Grădiștei",
       description:
-        "Parkplätze stehen am Frans-Otten-Stadion, 100 m vom Hotel entfernt, zur Verfügung. Die Kosten betragen 17,50 € pro Tag. Sie können bei uns im Voraus buchen!",
+        "Parcul de aventură Cheile Grădiștei este o destinație de top pentru iubitorii de adrenalină și activități în aer liber, situat în inima munților Carpați, în apropierea localității Fundata din județul Brașov, România. Acesta face parte din Complexul Turistic Cheile Grădiștei, cunoscut pentru peisajele sale pitorești și facilitățile de recreere variate.",
     },
   ];
 
