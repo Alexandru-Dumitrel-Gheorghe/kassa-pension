@@ -1,16 +1,16 @@
 import React from "react";
 import MyNavbar from "../components/Navbar";
+import HeaderContact from "../components/contact/HeaderContact";
+import ContactForm from "../components/contact/ContactForm"; // Import the new ContactForm component
 
-const Contact = () => {
+const ContactPage = () => {
   return (
-    <div>
+    <>
       <MyNavbar />
-      <div className="container mt-5">
-        <h1>Contact</h1>
-        <p>Contactează-ne aici.</p>
-      </div>
-    </div>
+      <HeaderContact />
+      <ContactForm />
+    </>
   );
 };
 
-export default Contact;
+export default ContactPage;

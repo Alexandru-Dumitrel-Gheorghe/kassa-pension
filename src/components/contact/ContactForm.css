@@ -1,0 +1,110 @@
+.custom-contact-container {
+  padding: 80px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-contact-header {
+  text-align: center;
+  margin-bottom: 80px; /* This adds space below the header */
+}
+
+.custom-contact-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.custom-contact-info {
+  text-align: center;
+  margin-bottom: 80px; /* Adjust this value if needed */
+}
+
+.custom-info-item {
+  margin-bottom: 20px;
+}
+
+.custom-info-item i {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.custom-info-item p {
+  font-size: 1rem;
+}
+
+.custom-contact-form-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px; /* This adds space between the info section and the form */
+  color: #d4af37;
+}
+
+.custom-contact-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.custom-contact-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center; /* Center the Contact Us title */
+}
+
+.custom-contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.custom-contact-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.custom-contact-form .custom-submit-button-container {
+  display: flex;
+  justify-content: center; /* Center the button container */
+}
+
+.custom-contact-form .custom-submit-button {
+  background-color: #d4af37;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.custom-contact-form .custom-submit-button:hover {
+  background-color: #b38f30;
+}
+
+.custom-contact-image img {
+  width: 100%;
+  height: 60vh !important;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .custom-contact-form-row {
+    flex-direction: column;
+  }
+
+  .custom-contact-form,
+  .custom-contact-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .custom-contact-image {
+    display: none;
+  }
+}
