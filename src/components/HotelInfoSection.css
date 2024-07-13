@@ -3,11 +3,14 @@
   padding: 82px 20px;
   text-align: center;
   color: white;
+  border-top: 5px solid #d4af37;
+  border-bottom: 5px solid transparent; /* Adăugat pentru a evita erori de sintaxă */
 }
 
 .hotel-info-content {
   max-width: 800px;
   margin: 0 auto;
+  border-bottom: 5px solid transparent; /* Adăugat pentru a evita erori de sintaxă */
 }
 
 .hotel-info-content h1 {
@@ -29,6 +32,7 @@
 @media (max-width: 1200px) {
   .hotel-info-section {
     padding: 60px 15px;
+    padding-bottom: 40px; /* Ajustează padding-ul de jos */
   }
 
   .hotel-info-content h1 {
@@ -47,6 +51,7 @@
 @media (max-width: 992px) {
   .hotel-info-section {
     padding: 50px 10px;
+    padding-bottom: 30px; /* Ajustează padding-ul de jos */
   }
 
   .hotel-info-content h1 {
@@ -65,6 +70,7 @@
 @media (max-width: 768px) {
   .hotel-info-section {
     padding: 40px 5px;
+    padding-bottom: 20px; /* Ajustează padding-ul de jos */
   }
 
   .hotel-info-content h1 {
@@ -82,18 +88,19 @@
 
 @media (max-width: 576px) {
   .hotel-info-section {
-    padding: 30px 5px;
+    padding: 15px 5px;
+    padding-bottom: 10px; /* Ajustează padding-ul de jos */
   }
 
   .hotel-info-content h1 {
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
 
   .hotel-info-content h2 {
-    font-size: 1.2em;
+    font-size: 1.6em;
   }
 
   .hotel-info-content p {
-    font-size: 0.8em;
+    font-size: 1.2em;
   }
 }

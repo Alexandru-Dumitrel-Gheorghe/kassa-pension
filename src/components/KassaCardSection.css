@@ -2,7 +2,8 @@
   display: flex !important;
   flex-direction: column !important; /* Changed from row to column */
   align-items: center !important; /* Center the cards */
-  padding: 40px 20px !important;
+  padding: 20px 20px !important;
+  overflow-x: hidden;
 }
 
 .kassa-card {
@@ -10,12 +11,13 @@
   background-color: #226b5f !important;
   color: white !important;
   border-radius: 10px !important;
-  margin: 30px 0 !important; /* Increased margin for vertical spacing */
+  margin: 10px 0 !important; /* Increased margin for vertical spacing */
   width: 90% !important; /* Adjusted width to fit the container */
   max-width: 1200px !important; /* Maximum width for larger screens */
-  height: 340px !important; /* Set height to make cards square */
+  height: 300px !important; /* Set height to make cards square */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
   overflow: hidden !important;
+  width: 540px !important;
 }
 
 .kassa-card img {
@@ -63,9 +65,15 @@
 
 /* Media Queries */
 @media (max-width: 1200px) {
+  .kassa-card-section {
+    margin: 0 !important; /* No margin */
+    padding: 20px 0 !important; /* No padding on sides */
+  }
+
   .kassa-card {
     width: 100% !important; /* Full width for smaller screens */
     height: auto !important; /* Adjust height for smaller screens */
+    margin-bottom: 10px !important; /* Adjust bottom margin */
   }
 
   .kassa-card img {
@@ -78,9 +86,15 @@
 }
 
 @media (max-width: 992px) {
+  .kassa-card-section {
+    margin: 0 !important; /* No margin */
+    padding: 20px 0 !important; /* No padding on sides */
+  }
+
   .kassa-card {
     width: 100% !important; /* Full width for smaller screens */
     height: auto !important; /* Adjust height for smaller screens */
+    margin-bottom: 10px !important; /* Adjust bottom margin */
   }
 
   .kassa-card img {
@@ -93,9 +107,15 @@
 }
 
 @media (max-width: 768px) {
+  .kassa-card-section {
+    margin: 0 !important; /* No margin */
+    padding: 20px 0 !important; /* No padding on sides */
+  }
+
   .kassa-card {
     width: 100% !important; /* Full width for smaller screens */
     height: auto !important; /* Adjust height for smaller screens */
+    margin-bottom: 5px !important; /* Adjust bottom margin */
   }
 
   .kassa-card img {
@@ -108,9 +128,15 @@
 }
 
 @media (max-width: 576px) {
+  .kassa-card-section {
+    margin: 0 !important; /* No margin */
+    padding: 10px 0 !important; /* No padding on sides */
+  }
+
   .kassa-card {
     width: 100% !important; /* Full width for smaller screens */
     height: auto !important; /* Adjust height for smaller screens */
+    margin-bottom: 5px !important; /* Adjust bottom margin */
   }
 
   .kassa-card img {
