@@ -2,6 +2,7 @@ import React from "react";
 import RoomHeader from "../components/RoomHeader";
 import HotelInfoSection from "../components/HotelInfoSection";
 import RoomCardsSection from "../components/RoomCardsSection";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Rooms = () => {
   return (
@@ -12,6 +13,7 @@ const Rooms = () => {
       />
       <HotelInfoSection />
       <RoomCardsSection />
+      <ScrollToTop />
     </div>
   );
 };

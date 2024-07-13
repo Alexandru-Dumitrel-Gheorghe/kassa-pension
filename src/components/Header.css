@@ -71,12 +71,12 @@
 
 .scroll-down-button {
   position: absolute;
-  bottom: 60px; /* Raise the button a bit higher */
+  bottom: 40px; /* Adjust the button position */
   left: 50%;
   transform: translateX(-50%);
   background: none;
   border: none;
-  font-size: 3rem; /* Make the button larger */
+  font-size: 2.5rem; /* Adjust button size */
   color: #d4af37;
   cursor: pointer;
   animation: bounce 2s infinite;
@@ -115,18 +115,22 @@
 /* Media Queries */
 @media (max-width: 1200px) {
   .header {
-    height: 100vh;
+    height: 80vh;
   }
 
   .header-content {
     padding: 15px;
     margin-top: 20px; /* Lower the title */
   }
+
+  .scroll-down-button {
+    bottom: 30px; /* Adjust position for smaller screens */
+  }
 }
 
 @media (max-width: 992px) {
   .header {
-    height: 100vh;
+    height: 80vh;
   }
 
   .header-content {
@@ -135,17 +139,22 @@
   }
 
   .header-content h1 {
-    font-size: 1.2rem; /* Larger title */
+    font-size: 1.5rem; /* Larger title */
   }
 
   .header-content .tagline {
     font-size: 1rem; /* Smaller tagline */
   }
+
+  .scroll-down-button {
+    bottom: 30px; /* Adjust position for smaller screens */
+    font-size: 2rem; /* Adjust button size */
+  }
 }
 
 @media (max-width: 768px) {
   .header {
-    height: 100vh;
+    height: 80vh;
   }
 
   .header-content {
@@ -162,13 +171,14 @@
   }
 
   .scroll-down-button {
-    font-size: 2rem; /* Adjust button size for smaller screens */
+    bottom: 30px; /* Adjust position for smaller screens */
+    font-size: 1.8rem; /* Adjust button size */
   }
 }
 
 @media (max-width: 576px) {
   .header {
-    height: 100vh;
+    height: 80vh;
   }
 
   .header-content {
@@ -185,6 +195,7 @@
   }
 
   .scroll-down-button {
-    font-size: 2.5rem; /* Adjust button size for smaller screens */
+    bottom: 30px; /* Adjust position for smaller screens */
+    font-size: 1.8rem; /* Adjust button size */
   }
 }

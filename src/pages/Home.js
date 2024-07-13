@@ -6,6 +6,7 @@ import InfoSection from "../components/InfoSection";
 import KassaCardSection from "../components/KassaCardSection";
 import ReviewsSection from "../components/ReviewsSection";
 import Cookies from "../components/Cookies/Cookies";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <KassaCardSection />
       <ReviewsSection />
       <Cookies />
+      <ScrollToTop />
     </>
   );
 };

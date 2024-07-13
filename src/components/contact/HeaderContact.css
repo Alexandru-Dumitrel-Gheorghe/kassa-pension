@@ -1,6 +1,6 @@
 .contact-header {
   position: relative;
-  background-image: url("https://images.unsplash.com/photo-1613993995046-07bce4b0bfed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Replace with a valid URL */
+  background-image: url("https://images.unsplash.com/photo-1525905708812-b271b5e3b2f3?q=80&w=2129&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Replace with a valid URL */
   background-size: cover;
   background-position: center;
   height: 55vh; /* Adjust height as needed */
@@ -10,6 +10,7 @@
   color: white;
   text-align: center;
   color: #d4af37;
+  border-bottom: #d4af37 5px solid; /* Modificat pentru a corecta eroarea de sintaxă */
 }
 
 .contact-header::before {
@@ -28,7 +29,7 @@
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 10px; /* Yellow border on top */
   opacity: 0; /* Hidden initially */
   transform: translateY(20px); /* Initial position for slide-in effect */
   animation: fadeInUp 1s forwards; /* Animation properties */
@@ -91,7 +92,7 @@
 
 @media (max-width: 576px) {
   .contact-header {
-    height: 35vh;
+    height: 40vh;
   }
 
   .contact-header-content h1 {

@@ -24,11 +24,11 @@ const ContactForm = () => {
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
-          alert("Email sent successfully!");
+          alert("Email trimis cu succes!");
         },
         (err) => {
           console.log("FAILED...", err);
-          alert("Failed to send email.");
+          alert("Trimiterea emailului a eșuat.");
         }
       );
 
@@ -44,36 +44,19 @@ const ContactForm = () => {
     <Container className="custom-contact-container">
       <Row className="custom-contact-header">
         <Col md={12}>
-          <h2>Contact Form #03</h2>
+          <h2 id="Contact-h2">MESAJ RAPID</h2>
         </Col>
       </Row>
-      <Row className="custom-contact-info">
-        <Col md={3} className="custom-info-item">
-          <i className="bi bi-geo-alt"></i>
-          <p>198 West 21th Street, Suite 721 New York, NY 10016</p>
-        </Col>
-        <Col md={3} className="custom-info-item">
-          <i className="bi bi-telephone"></i>
-          <p>+ 1235 2355 98</p>
-        </Col>
-        <Col md={3} className="custom-info-item">
-          <i className="bi bi-envelope"></i>
-          <p>info@yoursite.com</p>
-        </Col>
-        <Col md={3} className="custom-info-item">
-          <i className="bi bi-globe"></i>
-          <p>yoursite.com</p>
-        </Col>
-      </Row>
+
       <Row className="custom-contact-form-row">
         <Col md={6} className="custom-contact-form">
-          <h2>Contact Us</h2>
+          <h2 id="ContactForm-h2">Contactează-ne</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
-              <Form.Label>Full Name</Form.Label>
+              <Form.Label>Nume complet</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Name"
+                placeholder="Nume"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -81,7 +64,7 @@ const ContactForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formEmail">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Adresă de email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Email"
@@ -92,10 +75,10 @@ const ContactForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formSubject">
-              <Form.Label>Subject</Form.Label>
+              <Form.Label>Subiect</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Subject"
+                placeholder="Subiect"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
@@ -103,11 +86,11 @@ const ContactForm = () => {
               />
             </Form.Group>
             <Form.Group controlId="formMessage">
-              <Form.Label>Message</Form.Label>
+              <Form.Label>Mesaj</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Message"
+                placeholder="Mesaj"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
@@ -120,16 +103,33 @@ const ContactForm = () => {
                 type="submit"
                 className="custom-submit-button"
               >
-                Send Message
+                Trimite Mesajul
               </Button>
             </div>
           </Form>
         </Col>
-        <Col md={6} className="custom-contact-image">
-          <img
-            src="https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2020&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Contact"
-          />
+        <Col md={6} className="custom-contact-additional-info">
+          <h3>Informații Suplimentare</h3>
+          <p>
+            Dacă aveți întrebări, nu ezitați să ne contactați. Suntem aici
+            pentru a vă ajuta cu orice întrebări legate de serviciile noastre.
+          </p>
+          <ul>
+            <li>Servicii de înaltă calitate</li>
+            <li>Suport clienți 24/7</li>
+            <li>Opțiuni flexibile de rezervare</li>
+          </ul>
+          <h4>Urmărește-ne</h4>
+          <p>
+            Rămâneți conectat cu noi prin intermediul rețelelor sociale pentru
+            cele mai recente actualizări și oferte.
+          </p>
+          <div className="social-icons">
+            <i className="bi bi-facebook"></i>
+            <i className="bi bi-twitter"></i>
+            <i className="bi bi-instagram"></i>
+            <i className="bi bi-linkedin"></i>
+          </div>
         </Col>
       </Row>
     </Container>
