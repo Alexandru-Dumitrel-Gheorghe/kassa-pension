@@ -3,20 +3,22 @@ import MyNavbar from "../components/Navbar";
 import Header from "../components/Header";
 import Section from "../components/Section";
 import InfoSection from "../components/InfoSection";
-import KassaCardSection from "../components/KassaCardSection"; // Importă componentul KassaCardSection
+import KassaCardSection from "../components/KassaCardSection";
 import ReviewsSection from "../components/ReviewsSection";
-import Cookies from "../components/Cookies/Cookies"; // Importă componentul Cookies
+import Cookies from "../components/Cookies/Cookies";
 
 const Home = () => {
   return (
     <>
       <MyNavbar />
       <Header />
-      <Section />
+      <div id="next-section">
+        <Section />
+      </div>
       <InfoSection />
-      <KassaCardSection /> {/* Afișează componentul KassaCardSection */}
+      <KassaCardSection />
       <ReviewsSection />
-      <Cookies /> {/* Afișează componentul Cookies */}
+      <Cookies />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./KassaCardSection.css";
+
 const KassaCardSection = () => {
   return (
     <Container className="kassa-card-section mt-5">

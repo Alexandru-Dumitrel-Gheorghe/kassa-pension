@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  background-image: url(https://images.unsplash.com/photo-1506059612708-99d6c258160e?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Imaginea trebuie să fie în directorul public */
+  background-image: url("https://images.unsplash.com/photo-1506059612708-99d6c258160e?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Imaginea trebuie să fie în directorul public */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -20,7 +20,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  ); /* Gradient overlay */
   z-index: 1;
 }
 
@@ -33,14 +37,55 @@
   opacity: 0; /* Hidden initially */
   transform: translateY(20px); /* Initial position for slide-in effect */
   animation: fadeInUp 1s forwards; /* Animation properties */
+  margin-top: 20px; /* Lower the title */
 }
 
 .header-content h1 {
-  margin-bottom: 20px !important; /* Adaugă spațiu între h1 și p */
+  margin-bottom: 20px !important; /* Add space between h1 and p */
   color: #d4af37;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
 }
-#P-Header-Home {
+
+.header-content .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #f0e68c; /* Soft yellow color for contrast */
+}
+
+.header-content .book-now-button {
+  background-color: #d4af37;
+  border: none;
+  color: #2e856e;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-content .book-now-button:hover {
+  background-color: #f0e68c;
+  color: #2e856e;
+}
+
+.scroll-down-button {
+  position: absolute;
+  bottom: 60px; /* Raise the button a bit higher */
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  font-size: 3rem; /* Make the button larger */
   color: #d4af37;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+.scroll-down-button:hover {
+  color: #ffffff;
 }
 
 /* Animation Keyframes */
@@ -48,6 +93,22 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
   }
 }
 
@@ -59,6 +120,7 @@
 
   .header-content {
     padding: 15px;
+    margin-top: 20px; /* Lower the title */
   }
 }
 
@@ -69,6 +131,15 @@
 
   .header-content {
     padding: 10px;
+    margin-top: 20px; /* Lower the title */
+  }
+
+  .header-content h1 {
+    font-size: 1.2rem; /* Larger title */
+  }
+
+  .header-content .tagline {
+    font-size: 1rem; /* Smaller tagline */
   }
 }
 
@@ -79,14 +150,19 @@
 
   .header-content {
     padding: 8px;
+    margin-top: 20px; /* Lower the title */
   }
 
   .header-content h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Larger title */
   }
 
-  .header-content p {
-    font-size: 1rem;
+  .header-content .tagline {
+    font-size: 0.8rem; /* Smaller tagline */
+  }
+
+  .scroll-down-button {
+    font-size: 2rem; /* Adjust button size for smaller screens */
   }
 }
 
@@ -97,13 +173,18 @@
 
   .header-content {
     padding: 5px;
+    margin-top: 20px; /* Lower the title */
   }
 
   .header-content h1 {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Larger title */
   }
 
-  .header-content p {
-    font-size: 0.9rem;
+  .header-content .tagline {
+    font-size: 0.7rem; /* Smaller tagline */
+  }
+
+  .scroll-down-button {
+    font-size: 2.5rem; /* Adjust button size for smaller screens */
   }
 }

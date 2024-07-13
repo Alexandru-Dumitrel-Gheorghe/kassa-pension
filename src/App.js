@@ -7,6 +7,7 @@ import Rooms from "./pages/Rooms";
 import BookNow from "./pages/BookNow";
 import Login from "./pages/Login";
 import Bookings from "./pages/Bookings";
+import Section from "./components/Section"; // Import the new Section component
 import MyNavbar from "./components/Navbar";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
@@ -22,11 +23,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<ContactPage />} />{" "}
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/book-now" element={<BookNow />} />
         <Route path="/login" element={<Login />} />
         <Route path="/bookings" element={<Bookings />} />
+        <Route path="/section" element={<Section />} /> {/* Add new route */}
       </Routes>
       <ContactSection />
       <Footer />

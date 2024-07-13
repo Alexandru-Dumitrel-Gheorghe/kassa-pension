@@ -8,7 +8,6 @@ const Section = () => {
       <Container>
         <Row className="text-center mb-4">
           <Col>
-            <h2 className="section-title">Simte energia</h2>
             <h1 className="section-heading">
               Bine ați venit la Pensiunea Kassa,
             </h1>

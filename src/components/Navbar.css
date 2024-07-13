@@ -17,6 +17,9 @@
   font-weight: bold;
   font-family: "Roboto", sans-serif;
   color: #d4af37 !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-link {
@@ -24,7 +27,7 @@
 }
 
 .navbar-button {
-  font-size: 1rem;
+  font-size: 0.8rem !important;
   font-weight: bold;
   margin-left: 10px;
   color: #d4af37 !important;
@@ -39,6 +42,11 @@
 .navbar-buttons {
   display: flex;
   align-items: center;
+}
+
+.navbar-brand-container {
+  flex-grow: 1;
+  text-align: center;
 }
 
 /* Media Queries */
@@ -80,5 +88,15 @@
   .navbar-custom.navbar-hidden {
     background-color: #2e856e;
     opacity: 1;
+  }
+
+  .navbar-custom .d-flex {
+    justify-content: space-between;
+  }
+
+  .navbar-brand-custom {
+    position: relative;
+    left: 0;
+    transform: none;
   }
 }

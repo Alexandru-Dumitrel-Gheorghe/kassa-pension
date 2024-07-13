@@ -1,8 +1,8 @@
 .reviews-section {
   position: relative;
-  padding: 60px 0;
-  background-image: url(https://images.unsplash.com/photo-1550504969-937eb02c18b3?q=80&w=2119&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Asigură-te că ai imaginea în directorul public */
-  background-attachment: fixed; /* Efect de parallax */
+  padding: 80px 0; /* Increased padding for top and bottom */
+  background-image: url(https://images.unsplash.com/photo-1550504969-937eb02c18b3?q=80&w=2119&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: white;
@@ -16,7 +16,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Strat semi-transparent negru */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -29,14 +29,31 @@
 .reviews-section h2 {
   margin-bottom: 40px;
   color: #d4af37;
+  animation: fadeIn 1.5s ease-in-out; /* Added fade-in animation */
 }
 
 .reviews-section p {
   margin-bottom: 20px;
+  font-size: 1.2rem; /* Increased font size */
+  animation: fadeIn 1.5s ease-in-out; /* Added fade-in animation */
 }
 
 /* Media Queries */
 @media (max-width: 1200px) {
+  .reviews-section {
+    padding: 60px 0;
+  }
+
+  .reviews-section h2 {
+    font-size: 2rem;
+  }
+
+  .reviews-section p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 992px) {
   .reviews-section {
     padding: 50px 0;
   }
@@ -50,7 +67,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .reviews-section {
     padding: 40px 0;
   }
@@ -64,7 +81,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .reviews-section {
     padding: 30px 0;
   }
@@ -78,16 +95,14 @@
   }
 }
 
-@media (max-width: 576px) {
-  .reviews-section {
-    padding: 20px 0;
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .reviews-section h2 {
-    font-size: 1.2rem;
-  }
-
-  .reviews-section p {
-    font-size: 0.8rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
