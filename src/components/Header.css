@@ -10,6 +10,7 @@
   color: white;
   text-align: center;
   color: #d4af37;
+  overflow: hidden !important;
 }
 
 .header::before {
