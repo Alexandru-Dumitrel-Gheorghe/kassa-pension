@@ -4,6 +4,8 @@
   padding: 50px 20px;
   text-align: center;
   color: white;
+  border-top: #d4af37 5px solid;
+  border-bottom: #d4af37 5px solid;
 }
 
 .about-info-content {

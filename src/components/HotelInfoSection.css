@@ -5,6 +5,7 @@
   color: white;
   border-top: 5px solid #d4af37;
   border-bottom: 5px solid transparent; /* Adăugat pentru a evita erori de sintaxă */
+  border-bottom: #d4af37 5px solid; /* Modificat pentru a corecta eroarea de sintaxă */
 }
 
 .hotel-info-content {

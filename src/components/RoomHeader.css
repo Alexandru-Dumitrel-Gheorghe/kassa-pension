@@ -36,6 +36,7 @@
 
 .room-header-content h1 {
   margin-bottom: 20px; /* Add space between h1 and p */
+  color: #d4af37;
 }
 
 /* Animation Keyframes */
@@ -57,7 +58,7 @@
   }
 
   .room-header-content p {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 }
 

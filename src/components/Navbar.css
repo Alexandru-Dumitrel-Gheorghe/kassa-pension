@@ -1,10 +1,10 @@
 .navbar-custom {
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease !important;
 }
 
 .navbar-hidden {
-  background-color: transparent;
-  opacity: 0.8;
+  background-color: transparent !important;
+  opacity: 1;
 }
 
 .navbar-visible {
@@ -13,27 +13,27 @@
 }
 
 .navbar-brand-custom {
-  font-size: 0.9rem; /* Aceeași dimensiune ca butoanele */
+  font-size: 1.5rem;
   font-weight: bold;
-  font-family: inherit; /* Același font ca butoanele */
-  color: #d4af37 !important ; /* Culoarea textului */
+  font-family: "Roboto", sans-serif;
+  color: #d4af37 !important;
 }
 
 .nav-link {
-  color: #d4af37 !important; /* Culoarea textului pentru link-urile din navbar */
+  color: #d4af37 !important;
 }
 
 .navbar-button {
-  font-size: 0.5rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-left: 10px;
-  color: #d4af37 !important; /* Culoarea textului pentru butoane */
-  border-color: #d4af37 !important; /* Culoarea marginii butoanelor */
+  color: #d4af37 !important;
+  border-color: #d4af37 !important;
 }
 
 .navbar-button:hover {
-  background-color: #d4af37; /* Culoarea de fundal la hover */
-  color: #2e856e; /* Culoarea textului la hover */
+  background-color: #d4af37;
+  color: #2e856e;
 }
 
 .navbar-buttons {
@@ -44,11 +44,11 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .navbar-buttons {
-    display: none; /* Ascunde butoanele navbar pe ecranele mici */
+    display: none;
   }
 
   .navbar-collapse {
-    background-color: #2e856e; /* Fundal solid pentru meniul deschis */
+    background-color: #2e856e;
   }
 
   .navbar-nav {
@@ -59,7 +59,7 @@
   .navbar-nav .nav-link {
     width: 100%;
     padding: 10px;
-    color: #d4af37 !important; /* Culoarea textului pentru link-urile din navbar pe ecrane mici */
+    color: #d4af37 !important;
   }
 
   .navbar-buttons.d-lg-none {
@@ -70,11 +70,11 @@
   }
 
   .navbar-buttons.d-lg-none .navbar-button {
-    margin-bottom: 10px; /* Adaugă spațiu între butoane */
+    margin-bottom: 10px;
   }
 
   .navbar-buttons.d-none {
-    display: none !important; /* Ascunde butoanele mari pe ecranele mici */
+    display: none !important;
   }
 
   .navbar-custom.navbar-hidden {

@@ -4,7 +4,7 @@
   background-image: url("https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Replace with a valid URL */
   background-size: cover;
   background-position: center;
-  height: 55vh; /* Adjust height as needed */
+  height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,11 +30,14 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
+  opacity: 0; /* Hidden initially */
+  transform: translateY(20px); /* Initial position for slide-in effect */
+  animation: fadeInUp 1s forwards; /* Animation properties */
 }
 
 .about-header-content h1 {
-  font-size: 3rem; /* Adjust as needed */
-  text-align: center; /* Ensure the text is centered */
+  margin-bottom: 20px; /* Add space between h1 and p */
+  color: #d4af37;
 }
 
 /* Media Queries */
@@ -44,6 +47,6 @@
   }
 
   .about-header-content h1 {
-    font-size: 2rem; /* Adjust font size for smaller screens */
+    font-size: 1.2rem; /* Adjust font size for smaller screens */
   }
 }

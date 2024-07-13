@@ -1,4 +1,3 @@
-// src/components/about/AboutCardSection.js
 import React from "react";
 import "./AboutCardSection.css";
 
@@ -37,9 +36,9 @@ const AboutCardSection = () => {
   return (
     <div className="about-card-section">
       {cards.map((card, index) => (
-        <div className="card" key={index}>
+        <div className="about-card" key={index}>
           <img src={card.image} alt={card.title} />
-          <div className="card-content">
+          <div className="about-card-content">
             <h2>{card.title}</h2>
             <p>{card.description}</p>
           </div>
