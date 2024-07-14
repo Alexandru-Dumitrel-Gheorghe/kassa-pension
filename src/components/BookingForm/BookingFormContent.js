@@ -33,11 +33,27 @@ const BookingFormContent = ({ rooms }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formatDateTime = (date, time) => {
+      if (!date || !time) return null;
+      return new Date(`${date}T${time}:00`).toISOString();
+    };
+
     const completeFormData = {
       ...formData,
       phone: `${formData.phonePrefix}${formData.phoneNumber}`,
       name: `${formData.firstName} ${formData.lastName}`,
+      checkInDate: formatDateTime(formData.checkInDate, formData.checkInTime),
+      checkOutDate: formatDateTime(
+        formData.checkOutDate,
+        formData.checkOutTime
+      ),
     };
+
+    // Check for invalid dates
+    if (!completeFormData.checkInDate || !completeFormData.checkOutDate) {
+      setSubmitMessage("Please provide valid check-in and check-out dates.");
+      return;
+    }
 
     console.log("Complete Form Data: ", completeFormData);
 
@@ -215,7 +231,6 @@ const BookingFormContent = ({ rooms }) => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            required
           ></textarea>
         </div>
         <div className="booking-form-group">

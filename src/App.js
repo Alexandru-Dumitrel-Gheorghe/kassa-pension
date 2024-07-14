@@ -12,9 +12,10 @@ import MyNavbar from "./components/Navbar";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ScrollToTop from "./ScrollToTop";
-import BookingForm from "./pages/BookingForm"; // Import the BookingForm page
+import BookingForm from "./pages/BookingForm";
+import Gallery from "./pages/Gallery";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css"; // Importăm fișierul CSS global
+import "./App.css";
 
 const rooms = [
   { title: "Camera Aur" },
@@ -38,8 +39,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/bookings" element={<Bookings />} />
         <Route path="/section" element={<Section />} />
-        <Route path="/booking" element={<BookingForm rooms={rooms} />} />{" "}
-        {/* Add new route */}
+        <Route path="/booking" element={<BookingForm rooms={rooms} />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
       <ContactSection />
       <Footer />

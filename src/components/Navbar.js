@@ -1,3 +1,4 @@
+// src/components/Navbar.js
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -61,6 +62,10 @@ const MyNavbar = () => {
             <Nav.Link as={Link} to="/contact" onClick={handleClose}>
               Contact
             </Nav.Link>
+            <Nav.Link as={Link} to="/gallery" onClick={handleClose}>
+              Gallery
+            </Nav.Link>{" "}
+            {/* Add Gallery link */}
             <div className="navbar-buttons d-lg-none">
               <Button
                 variant="outline-light"

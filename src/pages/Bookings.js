@@ -23,7 +23,7 @@ const Bookings = () => {
     const date = new Date(dateString);
     return isNaN(date.getTime())
       ? "Invalid Date"
-      : date.toLocaleDateString("en-GB", {
+      : date.toLocaleDateString("ro-RO", {
           day: "2-digit",
           month: "2-digit",
           year: "numeric",
@@ -35,7 +35,7 @@ const Bookings = () => {
     const date = new Date(dateTimeString);
     return isNaN(date.getTime())
       ? "Invalid Time"
-      : date.toLocaleTimeString("en-GB", {
+      : date.toLocaleTimeString("ro-RO", {
           hour: "2-digit",
           minute: "2-digit",
         });
