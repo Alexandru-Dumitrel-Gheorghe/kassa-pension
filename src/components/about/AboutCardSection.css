@@ -4,10 +4,9 @@
   align-items: center;
   padding: 50px 20px;
   margin-top: 40px;
-  background-color: #226b5f;
+
   color: white;
   text-align: center;
-  border-top: 5px solid #d4af37;
   border-bottom: 5px solid #d4af37;
 }
 
@@ -19,7 +18,7 @@
 }
 
 .about-card {
-  background-color: #d4af37;
+  background-color: #226b5f;
   color: white;
   border-radius: 10px;
   margin: 40px 15px;
@@ -52,7 +51,7 @@
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #226b5f;
+  color: #d4af37;
 }
 
 .about-card-content p {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../components//Login.css";
+import "../components/Login.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -39,6 +39,7 @@ const Login = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          placeholder="Email"
           required
         />
         <label>Password:</label>
@@ -47,6 +48,7 @@ const Login = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          placeholder="Parola"
           required
         />
         <button type="submit">Login</button>

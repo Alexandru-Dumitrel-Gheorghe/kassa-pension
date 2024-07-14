@@ -100,7 +100,6 @@ const BookingFormContent = ({ rooms }) => {
   return (
     <div className="booking-form-wrapper">
       <form className="booking-form" onSubmit={handleSubmit}>
-        <h2>Rezervă o cameră</h2>
         <div className="booking-form-group">
           <label>Nume</label>
           <div style={{ display: "flex", gap: "10px" }}>
