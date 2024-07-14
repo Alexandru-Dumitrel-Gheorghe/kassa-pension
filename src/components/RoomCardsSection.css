@@ -1,8 +1,15 @@
 .room-cards-section {
-  padding: 100px 0;
+  padding: 20px 20px !important;
   overflow-x: hidden;
   margin-top: 40px !important; /* Increased margin-top */
   margin-bottom: 10px !important; /* Increased margin-bottom */
+}
+
+.room-cards-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #226b5f;
 }
 
 .room-card {

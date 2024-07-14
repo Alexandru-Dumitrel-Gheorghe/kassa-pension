@@ -8,14 +8,14 @@ const AboutCardSection = () => {
         "https://i.pinimg.com/originals/b1/e8/fe/b1e8fef7031b037cf8e061b3a0f760b2.jpg",
       title: "Castelul Bran",
       description:
-        " Acesta este unul dintre cele mai renumite și vizitate castele din Europa de Est, atrăgând anual mii de turiști din întreaga lume. Castelul a fost construit între anii 1377 și 1388 de către sașii din Transilvania, cu scopul de a apăra trecătoarea Bran de invaziile otomane și de a proteja rutele comerciale dintre Transilvania și Țara Românească.",
+        "Acesta este unul dintre cele mai renumite și vizitate castele din Europa de Est, atrăgând anual mii de turiști din întreaga lume. Castelul a fost construit între anii 1377 și 1388 de către sașii din Transilvania, cu scopul de a apăra trecătoarea Bran de invaziile otomane și de a proteja rutele comerciale dintre Transilvania și Țara Românească.",
     },
     {
       image:
         "https://i.pinimg.com/originals/bf/35/5f/bf355f1d99ae4e2ecba8924ff0336b4e.jpg",
-      title: "Valea Bangaleasa",
+      title: "Valea Bângăleasa",
       description:
-        "Vaela Bângăleasa este un loc ideal pentru iubitorii de natură și pentru cei care caută să se bucure de activități în aer liber, cum ar fi drumețiile, ciclismul montan și observarea faunei sălbatice. Regiunea este acoperită de păduri de foioase și conifere, oferind habitat pentru diverse specii de animale și plante.!",
+        "Valea Bângăleasa este un loc ideal pentru iubitorii de natură și pentru cei care caută să se bucure de activități în aer liber, cum ar fi drumețiile, ciclismul montan și observarea faunei sălbatice. Regiunea este acoperită de păduri de foioase și conifere, oferind habitat pentru diverse specii de animale și plante.",
     },
     {
       image:
@@ -35,6 +35,7 @@ const AboutCardSection = () => {
 
   return (
     <div className="about-card-section">
+      <h1 className="about-card-title">Descoperă locuri uimitoare</h1>
       {cards.map((card, index) => (
         <div className="about-card" key={index}>
           <img src={card.image} alt={card.title} />

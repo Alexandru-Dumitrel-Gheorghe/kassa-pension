@@ -5,6 +5,7 @@ import "./KassaCardSection.css";
 const KassaCardSection = () => {
   return (
     <Container className="kassa-card-section mt-5">
+      <h2 className="section-title">Descoperiți Serviciile Noastre</h2>
       <Row>
         <Col md={6} className="mb-4">
           <div className="kassa-card">

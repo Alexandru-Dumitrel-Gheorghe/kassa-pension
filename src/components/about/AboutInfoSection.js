@@ -14,12 +14,11 @@ const AboutInfoSection = () => {
           vacanță cu terasă și vedere la râu include 7 dormitoare, un living, un
           televizor cu ecran plat, o bucătărie utilată, cu frigider și mașină de
           spălat vase, precum și 7 băi cu duș. Această casă de vacanță pune la
-          dispoziția oaspeților prosoape și lenjerie de pat. Această casă de
-          vacanță pune la dispoziție un grătar. Această proprietate are un salon
-          de zi comun, iar în apropiere oaspeții pot desfășura activități precum
-          schi. Kassa se află la 15 km de Dino Parc și la 31 km de Piaţa
-          Sfatului. Cel mai apropiat aeroport este Aeroportul Internațional
-          Brașov-Ghimbav, situat la 28 km de Kassa.
+          dispoziție un grătar. Această proprietate are un salon de zi comun,
+          iar în apropiere oaspeții pot desfășura activități precum schi. Kassa
+          se află la 15 km de Dino Parc și la 31 km de Piaţa Sfatului. Cel mai
+          apropiat aeroport este Aeroportul Internațional Brașov-Ghimbav, situat
+          la 28 km de Kassa.
         </p>
       </div>
     </div>

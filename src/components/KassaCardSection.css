@@ -8,17 +8,23 @@
   margin-bottom: 20px !important;
 }
 
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #226b5f;
+}
+
 .kassa-card {
   position: relative !important;
   background-color: #226b5f !important;
   color: white !important;
   border-radius: 10px !important;
   width: 90% !important;
-  max-width: 1200px !important;
+  max-width: 540px !important;
   height: 300px !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
   overflow: hidden !important;
-  width: 540px !important;
   transition: transform 0.3s ease-in-out !important;
 }
 

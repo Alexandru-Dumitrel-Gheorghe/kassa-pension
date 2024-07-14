@@ -38,7 +38,7 @@ const rooms = [
     title: "Camera Platină",
     type: "Camera de Lux",
     description:
-      "Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.",
+      "Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.",
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/554932830.jpg?k=11a5832a0ce276957dfb3352cd0c853d6fa87551b27d4d1cf7e3529c6697239e&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229676.jpg?k=e230bd3e00b955600f7d4b856e3c5fe31e902cad81f968a32b68fa70ff3cf975&o=&hp=1",
@@ -55,6 +55,7 @@ const RoomCardsSection = () => {
 
   return (
     <Container className="room-cards-section">
+      <h2>Camerele Noastre</h2>
       {rooms.map((room, index) => (
         <Row
           key={index}

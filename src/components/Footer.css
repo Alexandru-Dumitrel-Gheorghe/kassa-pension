@@ -2,6 +2,10 @@
   background-color: #2e856e;
   color: white;
   padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping of flex items for smaller screens */
 }
 
 .footer p {
@@ -10,4 +14,17 @@
 
 .text-right {
   text-align: right;
+}
+
+/* Media query for screens with a maximum width of 768px (tablets and smaller devices) */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: center;
+    margin-top: 10px; /* Adds some space between the paragraphs */
+  }
 }
