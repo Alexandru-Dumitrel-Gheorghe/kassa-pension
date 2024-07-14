@@ -38,7 +38,7 @@ const MyNavbar = () => {
       onSelect={handleClose}
       className={`navbar-custom ${
         navbarVisible ? "navbar-visible" : "navbar-hidden"
-      }`}
+      } ${expanded ? "navbar-visible" : ""}`}
       fixed="top"
       variant="dark"
       expand="lg"
@@ -47,7 +47,10 @@ const MyNavbar = () => {
         <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
           Kassa
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={handleToggle}
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="justify-content-center">
             <Nav.Link as={Link} to="/" onClick={handleClose}>
@@ -64,8 +67,7 @@ const MyNavbar = () => {
             </Nav.Link>
             <Nav.Link as={Link} to="/gallery" onClick={handleClose}>
               Gallery
-            </Nav.Link>{" "}
-            {/* Add Gallery link */}
+            </Nav.Link>
             <div className="navbar-buttons d-lg-none">
               <Button
                 variant="outline-light"

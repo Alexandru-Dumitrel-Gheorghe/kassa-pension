@@ -15,13 +15,7 @@ const Section = () => {
               Situată în inima Brașovului, unde tradiția și confortul modern se
               întâlnesc pentru a vă oferi o experiență de neuitat. Pensiunea
               noastră este locul ideal pentru a descoperi frumusețile istorice
-              și naturale ale acestui oraș minunat și pentru a vă relaxa într-un
-              cadru primitor și elegant.La Pensiunea Kassa, punem accent pe
-              confortul și satisfacția oaspeților noștri. Camerele noastre sunt
-              amenajate cu gust și echipate cu toate facilitățile necesare
-              pentru a vă asigura un sejur plăcut. Fiecare cameră dispune de
-              paturi confortabile, băi moderne, televiziune prin cablu și acces
-              gratuit la internet Wi-Fi.
+              și naturale ale acestui oraș minunat.
             </p>
           </Col>
         </Row>

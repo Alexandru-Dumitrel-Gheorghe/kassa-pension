@@ -3,7 +3,7 @@
   padding: 50px 20px;
   text-align: center;
   color: white;
-  min-height: 50vh; /* Ensure minimum height */
+  min-height: 20vh; /* Ensure minimum height */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,32 +11,42 @@
   border-top: 5px solid #d4af37;
 }
 
-.section-title {
-  color: #d4af37; /* Culoare galbenă pentru "Simte energia" */
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
 .section-heading {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #d4af37;
 }
 
 .section-description {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  color: white; /* Culoare text */
-  line-height: 2; /* Spatiu între rânduri */
+  color: white;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-line {
+  display: inline-block;
+}
+
+.section-line-1 {
+  width: 90%;
+}
+
+.section-line-2 {
+  width: 70%;
+}
+
+.section-line-3 {
+  width: 50%;
 }
 
 /* Media Queries */
 @media (max-width: 1200px) {
   .section {
     padding: 40px 15px;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
   }
 
   .section-heading {
@@ -53,10 +63,6 @@
     padding: 30px 10px;
   }
 
-  .section-title {
-    font-size: 1.6rem;
-  }
-
   .section-heading {
     font-size: 2rem;
   }
@@ -69,11 +75,7 @@
 @media (max-width: 768px) {
   .section {
     padding: 20px 5px;
-    min-height: auto; /* Ensure height adjusts on smaller screens */
-  }
-
-  .section-title {
-    font-size: 1.4rem;
+    min-height: auto;
   }
 
   .section-heading {
@@ -88,11 +90,7 @@
 @media (max-width: 576px) {
   .section {
     padding: 15px 5px;
-    min-height: auto; /* Ensure height adjusts on smaller screens */
-  }
-
-  .section-title {
-    font-size: 1.2rem;
+    min-height: auto;
   }
 
   .section-heading {
@@ -100,6 +98,6 @@
   }
 
   .section-description {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }

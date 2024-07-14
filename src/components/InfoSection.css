@@ -1,6 +1,6 @@
 .info-section {
   position: relative;
-  padding: 80px 0; /* Increased padding for top and bottom */
+  padding: 80px 0;
   background-image: url(https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229632.jpg?k=22c4c786d1734fff5a9fab4bb5ddd2be6c1a24f8770def966718a696a3236922&o=&hp=1);
   background-attachment: fixed;
   background-size: cover;
@@ -30,21 +30,21 @@
 .info-section h2 {
   margin-bottom: 20px;
   color: #d4af37;
-  animation: fadeIn 1.5s ease-in-out; /* Added fade-in animation */
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .info-section p {
   margin-bottom: 20px;
-  font-size: 1.2rem; /* Increased font size */
-  animation: fadeIn 1.5s ease-in-out; /* Added fade-in animation */
+  font-size: 1.2rem;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .info-section .btn-primary {
   background-color: #d4af37;
   border: none;
-  font-size: 1.1rem; /* Slightly larger button text */
+  font-size: 1.1rem;
   padding: 10px 20px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .info-section .btn-primary:hover {

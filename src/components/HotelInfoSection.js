@@ -7,14 +7,9 @@ const HotelInfoSection = () => {
       <div className="hotel-info-content">
         <h2>O ședere confortabilă și liniștită în Brașov</h2>
         <p>
-          Toate cele 309 camere moderne oferă baza perfectă pentru șederea
-          dumneavoastră în orașul agitat Brașov. Bucurați-vă de priveliștile
-          uluitoare ale orașului din patul dumneavoastră. Admirați Stadionul
-          Olimpic, terenurile de sport din jur, lacul Nieuwe Meer și multe
-          altele. Toate tipurile de camere sunt proiectate și decorate cu multă
-          grijă și atenție la detalii. Deși caracteristicile decorative ale
-          interioarelor vă vor aminti de activitățile sportive din zonă,
-          camerele noastre sunt, în primul rând, un loc pentru relaxare supremă.
+          Cu cele 7 dormitoare generoase și 7 băi moderne, living spatios si
+          bucatarie complet utilata, această casă este perfectă pentru grupuri
+          mari sau familii numeroase care doresc să petreacă timp împreună.
         </p>
       </div>
     </div>

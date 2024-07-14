@@ -2,24 +2,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 2px !important;
+  padding: 20px;
   margin-top: 20px;
+  background-color: #f9f9f9; /* Fundal deschis pentru contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Umbra mai mare pentru efect 3D */
 }
 
 .gallery-title {
-  font-size: 2rem; /* Poți ajusta la variabila dorită */
-  margin-bottom: 40px;
+  font-size: 2.5rem; /* Font mai mare pentru titlu */
+  margin-bottom: 20px;
   text-align: center;
-  color: #2e856e; /* Poți ajusta la variabila dorită */
+  color: #2e856e;
+  text-transform: uppercase; /* Majuscule pentru titlu */
+  font-weight: bold; /* Font bold pentru titlu */
 }
 
 .gallery-container {
   padding: 20px;
-  margin: 0 10px !important; /* Marginile laterale de 10px */
+  margin: 0 10px;
   width: 90%;
   max-width: 1000px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   overflow: hidden;
+  background-color: white; /* Fundal alb pentru container */
 }
 
 .image-gallery-slide img {
@@ -28,6 +35,11 @@
   height: auto;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Efect de tranziție pentru hover */
+}
+
+.image-gallery-slide img:hover {
+  transform: scale(1.05); /* Mărire ușoară la hover */
 }
 
 /* Media Queries */
@@ -37,17 +49,33 @@
   }
 
   .gallery-container {
-    padding: 20px;
+    padding: 15px;
     width: 100%;
   }
 
+  .gallery-title {
+    font-size: 2rem; /* Ajustare dimensiune font pe ecrane mici */
+  }
+
   .image-gallery-slide img {
-    max-height: 700px; /* Increase image size */
+    max-height: 700px; /* Dimensiune imagine ajustată pentru mobile */
   }
 }
 
 @media (max-width: 576px) {
+  .gallery-wrapper {
+    padding: 10px;
+  }
+
+  .gallery-container {
+    padding: 10px;
+  }
+
+  .gallery-title {
+    font-size: 1.8rem; /* Ajustare dimensiune font pe ecrane foarte mici */
+  }
+
   .image-gallery-slide img {
-    max-height: 800px; /* Increase image size */
+    max-height: 800px; /* Dimensiune imagine ajustată pentru ecrane mici */
   }
 }
