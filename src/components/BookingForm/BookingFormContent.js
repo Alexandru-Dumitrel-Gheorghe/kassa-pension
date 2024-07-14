@@ -34,17 +34,9 @@ const BookingFormContent = ({ rooms }) => {
     e.preventDefault();
 
     const completeFormData = {
-      name: `${formData.firstName} ${formData.lastName}`,
-      email: formData.email,
+      ...formData,
       phone: `${formData.phonePrefix}${formData.phoneNumber}`,
-      address: formData.address,
-      checkInDate: formData.checkInDate,
-      checkInTime: formData.checkInTime,
-      checkOutDate: formData.checkOutDate,
-      checkOutTime: formData.checkOutTime,
-      guests: formData.guests,
-      message: formData.message,
-      room: formData.room,
+      name: `${formData.firstName} ${formData.lastName}`,
     };
 
     console.log("Complete Form Data: ", completeFormData);
@@ -241,13 +233,15 @@ const BookingFormContent = ({ rooms }) => {
             ))}
           </select>
         </div>
-        <button type="submit" className="booking-btn">
-          Rezervă acum
-        </button>
+        <div className="booking-btn-container">
+          <button type="submit" className="booking-btn">
+            Rezervă acum
+          </button>
+        </div>
         {submitMessage && (
           <div
             className={`booking-alert mt-3 ${
-              submitMessage.includes("successfully")
+              submitMessage.includes("success")
                 ? "booking-alert-success"
                 : "booking-alert-danger"
             }`}

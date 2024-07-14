@@ -43,13 +43,13 @@
 .table td {
   padding: 12px;
   text-align: left;
-  border: 1px solid #dee2e6; /* Linie între coloane și rânduri */
+  border: 1px solid #dee2e6;
 }
 
 .table th {
   background-color: #f8f9fa;
   font-weight: bold;
-  border-bottom: 2px solid #dee2e6; /* Linie mai groasă sub header */
+  border-bottom: 2px solid #dee2e6;
 }
 
 .table tbody tr:nth-of-type(even) {
@@ -95,8 +95,8 @@
   }
 
   .table td {
-    display: none;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 5px;
@@ -104,8 +104,22 @@
   }
 
   .table td[data-label="Email"],
-  .table td[data-label="Phone"] {
-    display: block;
+  .table td[data-label="Phone"],
+  .table td[data-label="Name"],
+  .table td[data-label="Address"],
+  .table td[data-label="Room"],
+  .table td[data-label="Check-in Date"],
+  .table td[data-label="Check-in Time"],
+  .table td[data-label="Check-out Date"],
+  .table td[data-label="Check-out Time"],
+  .table td[data-label="Guests"],
+  .table td[data-label="Message"] {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .table tbody tr:nth-of-type(even) {

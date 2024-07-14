@@ -21,7 +21,13 @@ const Bookings = () => {
   const formatDate = (dateString) => {
     if (!dateString) return "Invalid Date";
     const date = new Date(dateString);
-    return isNaN(date.getTime()) ? "Invalid Date" : date.toLocaleDateString();
+    return isNaN(date.getTime())
+      ? "Invalid Date"
+      : date.toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        });
   };
 
   const formatTime = (dateTimeString) => {
@@ -29,7 +35,15 @@ const Bookings = () => {
     const date = new Date(dateTimeString);
     return isNaN(date.getTime())
       ? "Invalid Time"
-      : date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      : date.toLocaleTimeString("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+  };
+
+  const formatPhoneNumber = (phone) => {
+    const phoneNumber = phone.replace(/\D/g, "");
+    return phoneNumber.length > 10 ? phoneNumber.substring(0, 10) : phoneNumber;
   };
 
   const indexOfLastBooking = currentPage * bookingsPerPage;
@@ -46,7 +60,7 @@ const Bookings = () => {
       <header className="booking-header">
         <h1>Bookings</h1>
         <div className="logout-container">
-          <Logout /> {/* Butonul de logout poziționat în centru */}
+          <Logout />
         </div>
       </header>
       <div className="table-responsive">
@@ -70,7 +84,7 @@ const Bookings = () => {
             {currentBookings.map((booking, index) => (
               <tr key={index}>
                 <td data-label="Email">{booking.email}</td>
-                <td data-label="Phone">{booking.phone}</td>
+                <td data-label="Phone">{formatPhoneNumber(booking.phone)}</td>
                 <td data-label="Name">{booking.name}</td>
                 <td data-label="Address">{booking.address}</td>
                 <td data-label="Room">{booking.room}</td>

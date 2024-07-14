@@ -50,7 +50,7 @@
 
 .booking-btn-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center the button */
   margin-top: 20px;
 }
 
