@@ -1,6 +1,6 @@
-.contact-header {
+.custom-booking-header {
   position: relative;
-  background-image: url("https://images.unsplash.com/photo-1529169436040-836f3d93f0f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Replace with a valid URL */
+  background-image: url("https://images.unsplash.com/photo-1533759413974-9e15f3b745ac?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* Replace with a valid URL */
   background-size: cover;
   background-position: center;
   height: 55vh; /* Adjust height as needed */
@@ -13,7 +13,7 @@
   border-bottom: #d4af37 5px solid; /* Modificat pentru a corecta eroarea de sintaxă */
 }
 
-.contact-header::before {
+.custom-booking-header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -24,19 +24,21 @@
   z-index: 1;
 }
 
-.contact-header-content {
+.custom-booking-header-content {
   position: relative;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
   border-radius: 10px; /* Yellow border on top */
   opacity: 0; /* Hidden initially */
   transform: translateY(20px); /* Initial position for slide-in effect */
   animation: fadeInUp 1s forwards; /* Animation properties */
 }
 
-.contact-header-content h1 {
+.custom-booking-header-content h1 {
   margin-bottom: 20px; /* Add space between h1 and p */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+  color: #d4af37 !important;
 }
 
 /* Animation Keyframes */
@@ -49,57 +51,57 @@
 
 /* Media Queries */
 @media (max-width: 1200px) {
-  .contact-header {
+  .custom-booking-header {
     height: 50vh;
   }
 
-  .contact-header-content h1 {
+  .custom-booking-header-content h1 {
     font-size: 2rem;
   }
 
-  .contact-header-content p {
+  .custom-booking-header-content p {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 992px) {
-  .contact-header {
+  .custom-booking-header {
     height: 45vh;
   }
 
-  .contact-header-content h1 {
+  .custom-booking-header-content h1 {
     font-size: 1.8rem;
   }
 
-  .contact-header-content p {
+  .custom-booking-header-content p {
     font-size: 0.9rem;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-header {
+  .custom-booking-header {
     height: 40vh;
   }
 
-  .contact-header-content h1 {
+  .custom-booking-header-content h1 {
     font-size: 1.6rem;
   }
 
-  .contact-header-content p {
+  .custom-booking-header-content p {
     font-size: 0.8rem;
   }
 }
 
 @media (max-width: 576px) {
-  .contact-header {
+  .custom-booking-header {
     height: 40vh;
   }
 
-  .contact-header-content h1 {
+  .custom-booking-header-content h1 {
     font-size: 1.4rem;
   }
 
-  .contact-header-content p {
+  .custom-booking-header-content p {
     font-size: 0.7rem;
   }
 }

@@ -43,14 +43,11 @@ const ContactForm = () => {
   return (
     <Container className="custom-contact-container">
       <Row className="custom-contact-header">
-        <Col md={12}>
-          <h2 id="Contact-h2">MESAJ RAPID</h2>
-        </Col>
+        <h2 id="ContactForm-h2">Contactează-ne</h2>
       </Row>
 
       <Row className="custom-contact-form-row">
         <Col md={6} className="custom-contact-form">
-          <h2 id="ContactForm-h2">Contactează-ne</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
               <Form.Label>Nume complet</Form.Label>

@@ -1,140 +1,123 @@
-.bookings-page {
-  padding: 2em;
-  background-color: #226b5f;
-  color: #ffcc80;
-  margin-top: 0px; /* Adaugă un margin-top pentru a separa conținutul de navbar */
+.booking-page {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.booking-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2e856e;
+  color: white;
+  height: 20vh;
+  position: relative;
+}
+
+.booking-header h1 {
+  margin: 0;
+  font-size: 20px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.logout-container {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+.table-responsive {
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
 }
 
 .table {
   width: 100%;
-  margin-top: 1em;
-  background-color: #ffcc80;
-  color: #ffffff;
+  margin-bottom: 1rem;
+  color: #212529;
   border-collapse: collapse;
-  margin-top: 80px;
 }
 
 .table th,
 .table td {
-  padding: 0.75em;
-  border: 1px solid #ffcc80; /* Culoare pentru margini */
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #dee2e6; /* Linie între coloane și rânduri */
 }
 
 .table th {
-  background-color: #ffcc80;
-  color: #333333;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #3b3b3b;
-}
-
-.delete-button {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.delete-button:hover {
-  background-color: #c9302c;
-}
-
-/* Stil pentru butonul de logout */
-.logout-button {
-  display: block;
-  margin: 1em auto;
-  padding: 10px 20px;
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  background-color: #f8f9fa;
   font-weight: bold;
+  border-bottom: 2px solid #dee2e6; /* Linie mai groasă sub header */
 }
 
-.logout-button:hover {
-  background-color: #c9302c;
+.table tbody tr:nth-of-type(even) {
+  background-color: #f2f2f2;
 }
 
-/* Media Queries */
-@media (max-width: 1200px) {
-  .table th,
-  .table td {
-    font-size: 0.9rem;
-  }
+.table tbody tr:hover {
+  background-color: #e9ecef;
 }
 
-@media (max-width: 992px) {
-  .table th,
-  .table td {
-    font-size: 0.8rem;
-  }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
-  .delete-button {
-    padding: 4px 8px;
-  }
+.pagination button {
+  background-color: #2e856e;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #1e5646;
+}
+
+.pagination button:hover {
+  background-color: #1e5646;
 }
 
 @media (max-width: 768px) {
-  .bookings-page {
-    padding: 1em;
-    width: 100vw;
-  }
-
-  .table th,
-  .table td {
-    font-size: 0.7rem;
-  }
-
-  .delete-button {
-    padding: 3px 6px;
-  }
-
-  .table-responsive {
-    overflow-x: auto;
-  }
-
   .table thead {
     display: none;
   }
 
-  .table tr {
-    display: block;
-    margin-bottom: 1rem;
+  .table tbody tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
   }
 
   .table td {
-    display: block;
+    display: none;
     text-align: left;
-    font-size: 0.8rem;
-    border: none;
-    padding: 0.5rem 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
-  .table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-}
-
-@media (max-width: 576px) {
-  .bookings-page {
-    padding: 1em;
-    width: 100vw;
+  .table td[data-label="Email"],
+  .table td[data-label="Phone"] {
+    display: block;
   }
 
-  .table th,
-  .table td {
-    font-size: 0.6rem;
+  .table tbody tr:nth-of-type(even) {
+    background-color: #fff;
   }
 
-  .delete-button {
-    padding: 2px 4px;
+  .table tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  .logout-container {
+    left: 10px;
+    top: 10px;
   }
 }

@@ -1,10 +1,3 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-  font-family: "Roboto", sans-serif; /* Use a clean, professional font */
-}
-
 .custom-contact-container {
   padding: 40px 20px; /* Reduce padding to move the section higher */
   max-width: 1200px;
@@ -17,14 +10,7 @@ html {
 
 .custom-contact-header {
   text-align: center;
-  margin-bottom: 20px; /* Reduce space below the header */
-}
-
-.custom-contact-header h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #d4af37; /* Match the hotel's branding color */
-  margin-bottom: 100px;
+  margin-bottom: 60px; /* Reduce space below the header */
 }
 
 .custom-contact-info {
@@ -52,8 +38,7 @@ html {
   justify-content: center;
   align-items: stretch; /* Ensure equal height columns */
   margin-top: 30px; /* Reduce space between the info section and the form */
-  color: #2e856e;
-  background-color: #226b5f; /* Add background color */
+
   padding: 10px;
   border-radius: 10px;
 }
@@ -112,6 +97,9 @@ html {
   transition: background-color 0.3s ease;
 }
 
+#ContactForm-h2 {
+  color: #d4af37;
+}
 .custom-contact-form .custom-submit-button:hover {
   background-color: #b38f30;
 }
@@ -180,5 +168,6 @@ html {
   .custom-contact-form,
   .custom-contact-additional-info {
     padding: 20px;
+    margin-bottom: 26px;
   }
 }
