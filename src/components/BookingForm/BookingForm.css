@@ -46,6 +46,7 @@
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px; /* Ensure the font size is at least 16px to prevent zoom on iOS */
 }
 
 .booking-btn-container {
@@ -55,7 +56,7 @@
 }
 
 .booking-btn {
-  background-color: #28a745;
+  background-color: #d4af37;
   color: white;
   border: none;
   padding: 8px 16px; /* Smaller padding */
@@ -93,7 +94,7 @@
   .booking-form-group input,
   .booking-form-group select,
   .booking-form-group textarea {
-    font-size: 14px;
+    font-size: 16px; /* Ensure the font size is at least 16px on smaller screens as well */
   }
 
   .booking-btn {
