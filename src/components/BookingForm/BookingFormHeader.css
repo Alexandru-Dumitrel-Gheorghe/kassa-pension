@@ -10,7 +10,7 @@
   color: white;
   text-align: center;
   color: #d4af37;
-  border-bottom: #d4af37 5px solid; /* Modificat pentru a corecta eroarea de sintaxă */
+  border-bottom: #d4af37 2px solid; /* Modificat pentru a corecta eroarea de sintaxă */
 }
 
 .custom-booking-header::before {

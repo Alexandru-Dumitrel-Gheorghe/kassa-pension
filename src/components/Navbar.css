@@ -1,13 +1,15 @@
 .navbar-custom {
   transition: background-color 0.3s ease, opacity 0.3s ease !important;
+  background-color: transparent !important;
 }
 
 .navbar-hidden {
+  background-color: transparent !important;
   opacity: 1;
 }
 
 .navbar-visible {
-  background-color: #2e856e;
+  background-color: #2e856e !important;
   opacity: 1;
 }
 
@@ -75,18 +77,12 @@
     align-items: center;
     margin-top: 10px;
   }
-
   .navbar-buttons.d-lg-none .navbar-button {
     margin-bottom: 10px;
   }
 
   .navbar-buttons.d-none {
     display: none !important;
-  }
-
-  .navbar-custom.navbar-hidden {
-    background-color: #2e856e;
-    opacity: 1;
   }
 
   .navbar-custom .d-flex {

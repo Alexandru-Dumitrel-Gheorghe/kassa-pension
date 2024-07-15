@@ -1,11 +1,11 @@
 .kassa-card-section {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  padding: 20px 100px !important;
-  overflow-x: hidden;
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-x: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .section-title {
@@ -15,147 +15,157 @@
   color: #226b5f;
 }
 
+.facilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.facility-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #226b5f;
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.facility-item:hover {
+  transform: scale(1.1) rotate(5deg);
+  background-color: #226b5f;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.facility-icon {
+  font-size: 1.5rem;
+  width: 40px; /* Ensure the width and height are equal */
+  height: 40px; /* Ensure the width and height are equal */
+  background: #d4af37;
+  color: #fff;
+  border-radius: 50%; /* Make the icon circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.facility-item:hover .facility-icon {
+  background-color: #fff;
+  color: #226b5f;
+  transform: rotate(-5deg);
+}
+
+.kassa-cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px; /* Space between cards */
+}
+
 .kassa-card {
-  position: relative !important;
-  background-color: #226b5f !important;
-  color: white !important;
-  border-radius: 10px !important;
-  width: 90% !important;
-  max-width: 540px !important;
-  height: 300px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
-  overflow: hidden !important;
-  transition: transform 0.3s ease-in-out !important;
+  position: relative;
+  background-color: #226b5f;
+  color: white;
+  border-radius: 10px;
+  width: 400px; /* Fixed width for each card */
+  height: 300px; /* Fixed height for each card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  flex: 0 0 auto; /* Prevent cards from shrinking */
 }
 
 .kassa-card:hover {
-  transform: scale(1.05) !important; /* Zoom effect on hover */
+  transform: scale(1.05); /* Zoom effect on hover */
 }
 
 .kassa-card img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  transition: opacity 0.3s ease-in-out !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .kassa-card-title {
-  position: absolute !important;
-  bottom: 20px !important;
-  left: 20px !important;
-  font-size: 1.5em !important;
-  z-index: 2 !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1.5em;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .kassa-card-hover-text {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  color: #d4af37 !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease-in-out !important;
-  text-align: center !important;
-  border-radius: 10px !important;
-  padding: 20px !important;
-  box-sizing: border-box !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #d4af37;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .kassa-card:hover img {
-  opacity: 0.3 !important;
+  opacity: 0.3;
 }
 
 .kassa-card:hover .kassa-card-hover-text {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 /* Media Queries */
 @media (max-width: 1200px) {
-  .kassa-card-section {
-    margin: 0 !important;
-    padding: 20px 0 !important;
-  }
-
   .kassa-card {
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 10px !important;
-  }
-
-  .kassa-card img {
-    height: auto !important;
-  }
-
-  .kassa-card-hover-text {
-    padding: 10px !important;
+    width: 250px;
+    height: 250px;
   }
 }
 
 @media (max-width: 992px) {
-  .kassa-card-section {
-    margin: 0 !important;
-    padding: 20px 0 !important;
-  }
-
   .kassa-card {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  .kassa-card img {
-    height: auto !important;
-  }
-
-  .kassa-card-hover-text {
-    padding: 10px !important;
+    width: 200px;
+    height: 200px;
   }
 }
 
 @media (max-width: 768px) {
   .kassa-card-section {
-    margin: 0 !important;
-    padding: 20px 0 !important;
+    padding: 20px 10px;
   }
 
   .kassa-card {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  .kassa-card img {
-    height: auto !important;
-  }
-
-  .kassa-card-hover-text {
-    padding: 10px !important;
+    width: 150px;
+    height: 150px;
   }
 }
 
 @media (max-width: 576px) {
   .kassa-card-section {
-    margin: 0 !important;
-    padding: 10px 1px !important;
-    margin-top: 20px !important;
-    margin-bottom: 22px !important;
+    padding: 10px 5px;
   }
 
   .kassa-card {
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 5px !important;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
   }
 
-  .kassa-card img {
-    height: auto !important;
-  }
-
-  .kassa-card-hover-text {
-    padding: 10px !important;
+  .kassa-cards-container {
+    flex-direction: column;
   }
 }

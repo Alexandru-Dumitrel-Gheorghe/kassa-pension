@@ -1,7 +1,7 @@
 .reviews-section {
   position: relative;
   padding: 80px 0; /* Increased padding for top and bottom */
-  background-image: url(https://images.unsplash.com/photo-1550504969-937eb02c18b3?q=80&w=2119&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(https://cdn.pixabay.com/photo/2020/05/01/11/00/castle-5116436_1280.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -70,6 +70,7 @@
 @media (max-width: 768px) {
   .reviews-section {
     padding: 40px 0;
+    background-attachment: scroll; /* Make the background image static */
   }
 
   .reviews-section h2 {
@@ -84,6 +85,7 @@
 @media (max-width: 576px) {
   .reviews-section {
     padding: 30px 0;
+    background-attachment: scroll; /* Make the background image static */
   }
 
   .reviews-section h2 {
@@ -104,5 +106,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }

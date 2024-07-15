@@ -1,4 +1,3 @@
-// src/components/Navbar.js
 import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -9,7 +8,7 @@ const MyNavbar = () => {
   const [expanded, setExpanded] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > window.innerHeight) {
+    if (window.scrollY > 30) {
       setNavbarVisible(true);
     } else {
       setNavbarVisible(false);

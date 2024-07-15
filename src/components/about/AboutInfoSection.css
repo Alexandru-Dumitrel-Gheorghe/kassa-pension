@@ -3,8 +3,8 @@
   padding: 50px 20px;
   text-align: center;
   color: white;
-  border-top: 5px solid #d4af37;
-  border-bottom: 5px solid #d4af37;
+  border-top: 2px solid #d4af37;
+  border-bottom: 2px solid #d4af37;
 }
 
 .about-info-content {
@@ -18,28 +18,67 @@
   color: #d4af37;
 }
 
-.about-info-content p {
-  font-size: 1.2rem;
-  line-height: 2;
+.about-info-facilities-toggle {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.about-info-toggle-icon {
+  font-size: 2rem;
+  color: #d4af37;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.about-info-facilities-toggle:hover .about-info-toggle-icon {
+  color: #f0e68c;
+  transform: rotate(180deg);
+}
+
+.about-info-facilities-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.about-info-facility-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5px;
+  background: #fff;
+  color: #226b5f;
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100px; /* Adjust the width as needed */
+  text-align: center;
 }
 
-.about-info-line {
-  display: inline-block;
+.about-info-facility-item:hover {
+  transform: scale(1.05);
+  background-color: #226b5f;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.about-info-line-1 {
-  width: 90%;
+.about-info-facility-icon {
+  font-size: 1.5rem;
+  background: #d4af37;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.about-info-line-2 {
-  width: 70%;
-}
-
-.about-info-line-3 {
-  width: 50%;
+.about-info-facility-item:hover .about-info-facility-icon {
+  background-color: #fff;
+  color: #226b5f;
+  transform: rotate(-5deg);
 }
 
 /* Media Queries */
@@ -83,6 +122,20 @@
   .about-info-content p {
     font-size: 0.9rem;
   }
+
+  .about-info-facilities-list {
+    gap: 5px;
+  }
+
+  .about-info-facility-item {
+    width: 45%; /* Adjust the width for smaller screens */
+    height: 100px; /* Adjust the height for smaller screens */
+  }
+
+  .about-info-facility-icon {
+    font-size: 1.2rem;
+    padding: 8px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -96,5 +149,19 @@
 
   .about-info-content p {
     font-size: 0.9rem;
+  }
+
+  .about-info-facilities-list {
+    gap: 5px;
+  }
+
+  .about-info-facility-item {
+    width: 70%; /* Adjust the width for smaller screens */
+    height: 80px; /* Adjust the height for smaller screens */
+  }
+
+  .about-info-facility-icon {
+    font-size: 1rem;
+    padding: 6px;
   }
 }

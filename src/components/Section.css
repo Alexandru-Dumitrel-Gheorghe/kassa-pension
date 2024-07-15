@@ -7,8 +7,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 5px solid #d4af37;
-  border-top: 5px solid #d4af37;
+  border-bottom: 2px solid #d4af37;
+  border-top: 2px solid #d4af37;
 }
 
 .section-heading {
@@ -89,8 +89,9 @@
 
 @media (max-width: 576px) {
   .section {
-    padding: 15px 5px;
+    padding: 40px 5px;
     min-height: auto;
+    padding-bottom: 5px;
   }
 
   .section-heading {
