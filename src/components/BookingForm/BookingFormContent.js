@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./BookingForm.css";
 
-const BookingFormContent = ({ rooms }) => {
+const rooms = [
+  { title: "Camera Aur" },
+  { title: "Camera Argint" },
+  { title: "Camera Bronz" },
+  { title: "Camera Platină" },
+  { title: "Camera Diamant" },
+  { title: "Camera Perla" },
+  { title: "Camera Rubin" },
+];
+
+const BookingFormContent = () => {
   const location = useLocation();
   const defaultRoom = location.state?.roomTitle || rooms[0].title;
 
