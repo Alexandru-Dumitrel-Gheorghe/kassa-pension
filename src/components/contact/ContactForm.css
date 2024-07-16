@@ -1,181 +1,70 @@
-.custom-contact-container {
-  padding: px 20px;
-  background: #f9f9f9;
-  margin: 0 auto;
-  min-height: 80vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Center the content horizontally */
+.custom-title {
+  padding: 40px 0; /* Add padding to the title */
+  margin-top: 20px; /* Add margin to the top */
+  margin-bottom: 40px; /* Add margin to the bottom */
+  color: #d4af37; /* Set the color to green */
+}
+
+.custom-subtitle {
+  color: #d4af37; /* Set the subtitle color to green */
+  padding: 20px 0; /* Add padding to the subtitle */
+}
+
+.form-container {
+  background-color: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Larger shadow for a 3D effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.custom-contact-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.custom-contact-header h2 {
-  font-size: 2.5rem;
-  color: #2e856e; /* Match the hotel's branding color */
-  text-transform: uppercase;
-  font-weight: bold;
-  padding-top: 40px;
-}
-
-.custom-contact-info {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #2e856e;
+.info-container {
+  background-color: #d4af37;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Ensure the height matches the form container */
 }
 
 .custom-info-item {
-  margin-bottom: 20px;
-}
-
-.custom-info-item i {
-  font-size: 2rem;
-  color: #d4af37;
-  margin-bottom: 10px;
-}
-
-.custom-info-item p {
-  font-size: 1rem;
-}
-
-.custom-contact-form-row {
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: stretch; /* Ensure equal height columns */
-  margin-top: 30px;
-  gap: 20px; /* Add gap for better spacing between form and additional info */
-}
-
-.custom-contact-form {
-  background: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.custom-contact-form h2 {
-  font-size: 1.9rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: #d4af37;
-}
-
-.custom-contact-form .form-group {
-  margin-bottom: 15px;
-}
-
-.custom-contact-form .form-control {
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-.custom-contact-form .custom-submit-button-container {
-  display: flex;
-  justify-content: center;
-}
-
-.custom-contact-form .custom-submit-button {
-  background-color: #d4af37;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.custom-contact-form .custom-submit-button:hover {
-  background-color: #b38f30;
-}
-
-.custom-contact-additional-info {
-  background: #f9f9f9;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Center the content horizontally */
-  text-align: center; /* Center text */
-}
-
-.custom-contact-additional-info h3,
-.custom-contact-additional-info h4 {
-  color: #2e856e;
-  margin-bottom: 20px;
-}
-
-.custom-contact-additional-info p,
-.custom-contact-additional-info ul {
-  margin-bottom: 20px;
-}
-
-.custom-contact-additional-info ul {
-  padding-left: 20px;
-}
-
-.custom-contact-additional-info ul li {
-  list-style-type: disc;
-  margin-bottom: 10px;
+  gap: 10px;
+  color: #7a7c7c;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.social-icons i {
+.social-icon {
   font-size: 2rem;
-  color: #2e856e;
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  color: #226b5f;
+  transition: color 0.3s ease;
 }
 
-.social-icons i:hover {
-  color: #d4af37; /* Change color on hover to match branding */
+.social-icon:hover {
+  color: #d4af37;
 }
 
-@media (max-width: 992px) {
-  .custom-contact-form-row {
+.custom-button {
+  background-color: #2e856e !important; /* Set button color to green */
+  color: white !important;
+  padding: 8px 16px !important; /* Make the button smaller */
+  font-size: 0.875rem !important;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #d4af37 !important;
+}
+
+@media (max-width: 600px) {
+  .custom-info-item {
     flex-direction: column;
-  }
-
-  .custom-contact-form,
-  .custom-contact-additional-info {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 576px) {
-  .custom-contact-header h2 {
-    font-size: 2rem;
-  }
-
-  .custom-contact-form,
-  .custom-contact-additional-info {
-    padding: 20px;
-    margin-bottom: 26px;
-  }
-
-  .custom-contact-form h2,
-  .custom-contact-additional-info h2 {
-    font-size: 1.6rem;
   }
 }

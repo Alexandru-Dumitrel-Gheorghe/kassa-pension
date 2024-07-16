@@ -1,4 +1,5 @@
 import React from "react";
+import { FaMapMarkerAlt, FaTree, FaDragon, FaMountain } from "react-icons/fa";
 import "./AboutCardSection.css";
 
 const AboutCardSection = () => {
@@ -9,6 +10,7 @@ const AboutCardSection = () => {
       title: "Castelul Bran",
       description:
         "Acesta este unul dintre cele mai renumite și vizitate castele din Europa de Est, atrăgând anual mii de turiști din întreaga lume. Castelul a fost construit între anii 1377 și 1388 de către sașii din Transilvania, cu scopul de a apăra trecătoarea Bran de invaziile otomane și de a proteja rutele comerciale dintre Transilvania și Țara Românească.",
+      icon: <FaMapMarkerAlt />,
     },
     {
       image:
@@ -16,6 +18,7 @@ const AboutCardSection = () => {
       title: "Valea Bângăleasa",
       description:
         "Valea Bângăleasa este un loc ideal pentru iubitorii de natură și pentru cei care caută să se bucure de activități în aer liber, cum ar fi drumețiile, ciclismul montan și observarea faunei sălbatice. Regiunea este acoperită de păduri de foioase și conifere, oferind habitat pentru diverse specii de animale și plante.",
+      icon: <FaTree />,
     },
     {
       image:
@@ -23,6 +26,7 @@ const AboutCardSection = () => {
       title: "Dino Parc",
       description:
         "Dino Parc Râșnov este un parc tematic situat în orașul Râșnov, județul Brașov, România, dedicat în întregime dinozaurilor și lumii preistorice. Inaugurat în 2015, Dino Parc Râșnov este cel mai mare parc cu dinozauri din sud-estul Europei și oferă o experiență educativă și distractivă pentru vizitatori de toate vârstele.",
+      icon: <FaDragon />,
     },
     {
       image:
@@ -30,6 +34,7 @@ const AboutCardSection = () => {
       title: "Parcul de aventură Cheile Grădiștei",
       description:
         "Parcul de aventură Cheile Grădiștei este o destinație de top pentru iubitorii de adrenalină și activități în aer liber, situat în inima munților Carpați, în apropierea localității Fundata din județul Brașov, România. Acesta face parte din Complexul Turistic Cheile Grădiștei, cunoscut pentru peisajele sale pitorești și facilitățile de recreere variate.",
+      icon: <FaMountain />,
     },
   ];
 
@@ -40,6 +45,7 @@ const AboutCardSection = () => {
         <div className="about-card" key={index}>
           <img src={card.image} alt={card.title} />
           <div className="about-card-content">
+            <div className="about-card-icon">{card.icon}</div>
             <h2>{card.title}</h2>
             <p>{card.description}</p>
           </div>
