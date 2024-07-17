@@ -10,7 +10,7 @@
   margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #d4af37;
+  color: #2e856e;
 }
 
 .contact-section p a {
@@ -20,6 +20,11 @@
 
 .contact-section p a:hover {
   text-decoration: underline;
+}
+
+.contact-icon {
+  margin-right: 8px;
+  color: #d4af37;
 }
 
 /* Media Queries */

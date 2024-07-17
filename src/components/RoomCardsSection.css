@@ -1,51 +1,26 @@
 .room-cards-section {
-  padding: 20px 0px !important;
-  overflow-x: hidden;
-  margin-top: 40px !important;
-  margin-bottom: 40px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .room-cards-section h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #226b5f;
-  animation: fadeInDown 1s ease-in-out;
-}
-
-.important-info-button {
-  color: #226b5f;
-  font-size: 1.25rem;
-  text-decoration: none;
-}
-
-.important-info-button:hover {
   color: #d4af37;
-  text-decoration: none;
-}
-
-.important-info-content {
-  padding: 20px 0;
-}
-
-.important-info-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.important-info-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  animation: fadeInDown 1s ease-in-out;
 }
 
 .room-card {
   display: flex;
-  margin-bottom: 100px !important;
+  margin-bottom: 50px !important;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 450px;
   transition: transform 0.3s ease-in-out;
+  background-color: white; /* Add background color for better contrast */
+  height: 48vh;
 }
 
 .room-card:hover {
@@ -111,6 +86,9 @@
 }
 
 .room-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 5px 0;
   font-size: 1rem;
   line-height: 1.5;
@@ -119,7 +97,7 @@
 .book-button {
   background-color: #d4af37 !important;
   color: white;
-  padding: 5px 10px !important;
+  padding: 10px 20px !important; /* Increased padding for better look */
   font-size: 1rem !important;
   border: none;
   border-radius: 5px;
@@ -200,7 +178,7 @@
 
 @media (max-width: 576px) {
   .room-cards-section {
-    padding: 30px 20px; /* Added padding left and right */
+    padding: 15px 16px !important;
   }
 
   .room-card {

@@ -2,20 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 40px 20px; /* Increased padding for better spacing */
   margin-top: 20px;
-  background-color: #f9f9f9; /* Fundal deschis pentru contrast */
+  background-color: #f9f9f9; /* Light background for contrast */
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Umbra mai mare pentru efect 3D */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Larger shadow for a 3D effect */
 }
 
 .gallery-title {
-  font-size: 2.5rem; /* Font mai mare pentru titlu */
+  font-size: 2.5rem; /* Larger font size for title */
   margin-bottom: 20px;
   text-align: center;
-  color: #2e856e;
-  text-transform: uppercase; /* Majuscule pentru titlu */
-  font-weight: bold; /* Font bold pentru titlu */
+  color: #2e856e; /* Green color for branding */
+  text-transform: uppercase; /* Uppercase for title */
+  font-weight: bold; /* Bold font for title */
 }
 
 .gallery-container {
@@ -26,7 +26,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  background-color: white; /* Fundal alb pentru container */
+  background-color: white; /* White background for container */
 }
 
 .image-gallery-slide img {
@@ -35,11 +35,11 @@
   height: auto;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; /* Efect de tranziție pentru hover */
+  transition: transform 0.3s ease; /* Transition effect for hover */
 }
 
 .image-gallery-slide img:hover {
-  transform: scale(1.05); /* Mărire ușoară la hover */
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 /* Media Queries */
@@ -54,11 +54,11 @@
   }
 
   .gallery-title {
-    font-size: 2rem; /* Ajustare dimensiune font pe ecrane mici */
+    font-size: 2rem; /* Adjust font size for smaller screens */
   }
 
   .image-gallery-slide img {
-    max-height: 700px; /* Dimensiune imagine ajustată pentru mobile */
+    max-height: 700px; /* Adjust image height for mobile */
   }
 }
 
@@ -72,10 +72,10 @@
   }
 
   .gallery-title {
-    font-size: 1.8rem; /* Ajustare dimensiune font pe ecrane foarte mici */
+    font-size: 1.8rem; /* Adjust font size for very small screens */
   }
 
   .image-gallery-slide img {
-    max-height: 800px; /* Dimensiune imagine ajustată pentru ecrane mici */
+    max-height: 800px; /* Adjust image height for very small screens */
   }
 }

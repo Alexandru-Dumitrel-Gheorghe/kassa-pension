@@ -12,6 +12,7 @@ import {
   faSpa,
   faTree,
   faChevronDown,
+  faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 const facilities = [
@@ -42,22 +43,24 @@ const AboutInfoSection = () => {
           onClick={handleToggleFacilities}
         >
           <FontAwesomeIcon
-            icon={faChevronDown}
+            icon={showFacilities ? faChevronUp : faChevronDown}
             className="about-info-toggle-icon"
           />
-          {showFacilities && (
-            <div className="about-info-facilities-list">
-              {facilities.map((facility, index) => (
-                <div key={index} className="about-info-facility-item">
-                  <FontAwesomeIcon
-                    icon={facility.icon}
-                    className="about-info-facility-icon"
-                  />
-                  <p>{facility.text}</p>
-                </div>
-              ))}
+        </div>
+        <div
+          className={`about-info-facilities-list ${
+            showFacilities ? "open" : ""
+          }`}
+        >
+          {facilities.map((facility, index) => (
+            <div key={index} className="about-info-facility-item">
+              <FontAwesomeIcon
+                icon={facility.icon}
+                className="about-info-facility-icon"
+              />
+              <p>{facility.text}</p>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </div>

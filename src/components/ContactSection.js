@@ -1,5 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaLanguage,
+} from "react-icons/fa";
 import "./ContactSection.css";
 
 const ContactSection = () => {
@@ -10,15 +16,19 @@ const ContactSection = () => {
           <Col md={4} className="text-center">
             <h5>Pensiunea Kassa Brașov</h5>
             <p>
-              IJsbaanpad 12
+              <FaMapMarkerAlt className="contact-icon" /> IJsbaanpad 12
               <br />
               1076 CV Brașov
               <br />
               România
               <br />
-              <a href="tel:+40202405055">+40 20 240 50 55</a>
+              <a href="tel:+40202405055">
+                <FaPhone className="contact-icon" /> +40 20 240 50 55
+              </a>
               <br />
-              <a href="mailto:info@kassa.com">info@kassa.com</a>
+              <a href="mailto:info@kassa.com">
+                <FaEnvelope className="contact-icon" /> info@kassa.com
+              </a>
               <br />
               KVK: 68681453
               <br />
@@ -42,11 +52,17 @@ const ContactSection = () => {
           <Col md={4} className="text-center">
             <h5>Limba</h5>
             <p>
-              <a href="/">Română</a>
+              <a href="/">
+                <FaLanguage className="contact-icon" /> Română
+              </a>
               <br />
-              <a href="/">Engleză</a>
+              <a href="/">
+                <FaLanguage className="contact-icon" /> Engleză
+              </a>
               <br />
-              <a href="/">Germană</a>
+              <a href="/">
+                <FaLanguage className="contact-icon" /> Germană
+              </a>
             </p>
           </Col>
         </Row>

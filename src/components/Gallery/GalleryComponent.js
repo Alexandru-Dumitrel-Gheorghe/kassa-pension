@@ -77,7 +77,13 @@ const GalleryComponent = () => {
     <div className="gallery-wrapper">
       <h2 className="gallery-title">Povestea Noastră în Imagini</h2>
       <div className="gallery-container">
-        <ImageGallery items={images} />
+        <ImageGallery
+          items={images}
+          showFullscreenButton={true}
+          showPlayButton={true}
+          autoPlay={true}
+          slideInterval={5000}
+        />
       </div>
     </div>
   );

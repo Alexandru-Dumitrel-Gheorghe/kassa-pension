@@ -1,12 +1,12 @@
 import React from "react";
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
+import { FaWifi, FaUtensils, FaMountain, FaSpa, FaBath } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./RoomCardsSection.css";
 
 const rooms = [
   {
     title: "Camera Aur",
-    type: "Camera de Lux",
     description:
       "Căutați cea mai luxoasă ședere la Hotelul Olimpic? Alegeți camera Aur și rezervați acum! Camera este perfectă pentru o escapadă romantică.",
     price: "350 RON/noapte",
@@ -18,7 +18,6 @@ const rooms = [
   },
   {
     title: "Camera Argint",
-    type: "Camera de Lux",
     description:
       "Bucurați-vă de șederea dvs. în Camera Argint, cu facilități moderne și o frumoasă vedere a Brașovului.",
     price: "300 RON/noapte",
@@ -30,7 +29,6 @@ const rooms = [
   },
   {
     title: "Camera Bronz",
-    type: "Camera Confort",
     description:
       "Camera Bronz oferă confort și stil, perfectă pentru o ședere scurtă în Brașov.",
     price: "250 RON/noapte",
@@ -42,7 +40,6 @@ const rooms = [
   },
   {
     title: "Camera Platină",
-    type: "Camera de Lux",
     description:
       "Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.",
     price: "400 RON/noapte",
@@ -59,7 +56,6 @@ const rooms = [
   },
   {
     title: "Camera Diamant",
-    type: "Camera de Lux",
     description:
       "Camera Diamant oferă un lux de neegalat și o vedere panoramică deosebită.",
     price: "450 RON/noapte",
@@ -76,7 +72,6 @@ const rooms = [
   },
   {
     title: "Camera Perla",
-    type: "Camera de Confort",
     description:
       "Camera Perla oferă un confort extraordinar și facilități moderne.",
     price: "270 RON/noapte",
@@ -88,7 +83,6 @@ const rooms = [
   },
   {
     title: "Camera Rubin",
-    type: "Camera de Lux",
     description:
       "Camera Rubin este ideală pentru cei care doresc un sejur de neuitat, cu facilități premium.",
     price: "320 RON/noapte",
@@ -100,6 +94,17 @@ const rooms = [
   },
 ];
 
+const featureIcons = {
+  "WiFi Gratuit": <FaWifi />,
+  "Mic dejun inclus": <FaUtensils />,
+  "Vedere la munte": <FaMountain />,
+  "Acces la spa": <FaSpa />,
+  Jacuzzi: <FaBath />,
+  "Vedere la oraș": <FaMountain />,
+  "Vedere panoramică": <FaMountain />,
+  "Vedere la grădină": <FaMountain />,
+};
+
 const RoomCardsSection = () => {
   const navigate = useNavigate();
 
@@ -109,6 +114,11 @@ const RoomCardsSection = () => {
 
   return (
     <Container className="room-cards-section">
+      <Row>
+        <Col>
+          <h2>Camerele Noastre</h2>
+        </Col>
+      </Row>
       {rooms.map((room, index) => (
         <Row
           key={index}
@@ -132,12 +142,13 @@ const RoomCardsSection = () => {
           <Col md={6} className="room-description p-0">
             <div className="room-description-content">
               <h3>{room.title}</h3>
-              <p>{room.type}</p>
               <p>{room.description}</p>
               <p className="room-price">{room.price}</p>
               <ul className="room-features">
                 {room.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
+                  <li key={idx}>
+                    {featureIcons[feature]} {feature}
+                  </li>
                 ))}
               </ul>
               <Button

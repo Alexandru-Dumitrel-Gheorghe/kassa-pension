@@ -7,6 +7,8 @@ import KassaCardSection from "../components/KassaCardSection";
 import ReviewsSection from "../components/ReviewsSection";
 import Cookies from "../components/Cookies/Cookies";
 import ScrollToTop from "../components/ScrollToTop";
+import BusinessFacilities from "../components/informatii/BusinessFacilities";
+import Activitati from "../components/informatii/Activitati";
 
 const Home = () => {
   return (
@@ -18,7 +20,9 @@ const Home = () => {
       </div>
       <InfoSection />
       <KassaCardSection />
+      <BusinessFacilities />
       <ReviewsSection />
+      <Activitati />
       <Cookies />
       <ScrollToTop />
     </>

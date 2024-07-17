@@ -8,7 +8,7 @@
 }
 
 :root {
-  --font-family: "Roboto", sans-serif;
+  --font-family: "Roboto", sans-serif !important;
   --color-primary: #226b5f;
   --color-secondary: #d4af37;
   --text-color: white;
