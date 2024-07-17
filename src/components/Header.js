@@ -13,7 +13,7 @@ const Header = () => {
     <div className="header">
       <video className="header-video" autoPlay muted loop>
         <source
-          src={`${process.env.PUBLIC_URL}/video/review2.mp4`}
+          src={`${process.env.PUBLIC_URL}/video/review.mp4`}
           type="video/mp4"
         />
         Your browser does not support the video tag.
