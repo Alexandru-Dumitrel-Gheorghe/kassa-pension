@@ -11,6 +11,13 @@ const Header = () => {
 
   return (
     <div className="header">
+      <video className="header-video" autoPlay muted loop>
+        <source
+          src={`${process.env.PUBLIC_URL}/video/review2.mp4`}
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
       <div className="header-content">
         <h1>Pensiunea Kassa</h1>
         <p className="tagline">

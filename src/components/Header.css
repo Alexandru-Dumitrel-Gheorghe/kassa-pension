@@ -1,16 +1,21 @@
 .header {
   position: relative;
-  background-image: url("https://cdn.pixabay.com/photo/2018/01/21/01/46/architecture-3095716_1280.jpg"); /* Imaginea trebuie să fie în directorul public */
-  background-size: cover;
-  background-position: center;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   text-align: center;
-  color: #d4af37;
-  overflow: hidden !important;
+  overflow: hidden;
+}
+
+.header-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .header::before {
@@ -24,7 +29,7 @@
     to bottom,
     rgba(0, 0, 0, 0.4),
     rgba(0, 0, 0, 0.3)
-  ); /* Gradient overlay */
+  );
   z-index: 1;
 }
 
@@ -34,22 +39,21 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 10px;
-  opacity: 0; /* Hidden initially */
-  transform: translateY(20px); /* Initial position for slide-in effect */
-  animation: fadeInUp 1s forwards; /* Animation properties */
-  margin-top: 20px; /* Lower the title */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
 }
 
 .header-content h1 {
-  margin-bottom: 20px !important; /* Add space between h1 and p */
+  margin-bottom: 20px;
   color: #d4af37;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .header-content .tagline {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  color: #f0e68c; /* Soft yellow color for contrast */
+  color: #f0e68c;
 }
 
 .header-content .book-now-button {
@@ -71,24 +75,23 @@
 
 .scroll-down-button {
   position: absolute;
-  bottom: 40px; /* Adjust the button position */
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   background: none;
   border: none;
-  font-size: 2.5rem; /* Adjust button size */
+  font-size: 2.5rem;
   color: #d4af37;
   cursor: pointer;
   animation: bounce 2s infinite;
   z-index: 2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .scroll-down-button:hover {
   color: #ffffff;
 }
 
-/* Animation Keyframes */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -120,11 +123,10 @@
 
   .header-content {
     padding: 15px;
-    margin-top: 20px; /* Lower the title */
   }
 
   .scroll-down-button {
-    bottom: 30px; /* Adjust position for smaller screens */
+    bottom: 30px;
   }
 }
 
@@ -135,20 +137,19 @@
 
   .header-content {
     padding: 10px;
-    margin-top: 20px; /* Lower the title */
   }
 
   .header-content h1 {
-    font-size: 1.5rem; /* Larger title */
+    font-size: 1.5rem;
   }
 
   .header-content .tagline {
-    font-size: 1rem; /* Smaller tagline */
+    font-size: 1rem;
   }
 
   .scroll-down-button {
-    bottom: 30px; /* Adjust position for smaller screens */
-    font-size: 2rem; /* Adjust button size */
+    bottom: 30px;
+    font-size: 2rem;
   }
 }
 
@@ -159,20 +160,19 @@
 
   .header-content {
     padding: 8px;
-    margin-top: 20px; /* Lower the title */
   }
 
   .header-content h1 {
-    font-size: 1.2rem; /* Larger title */
+    font-size: 1.2rem;
   }
 
   .header-content .tagline {
-    font-size: 0.8rem; /* Smaller tagline */
+    font-size: 0.8rem;
   }
 
   .scroll-down-button {
-    bottom: 30px; /* Adjust position for smaller screens */
-    font-size: 1.8rem; /* Adjust button size */
+    bottom: 30px;
+    font-size: 1.8rem;
   }
 }
 
@@ -183,19 +183,18 @@
 
   .header-content {
     padding: 5px;
-    margin-top: 20px; /* Lower the title */
   }
 
   .header-content h1 {
-    font-size: 1.5rem; /* Larger title */
+    font-size: 1.5rem;
   }
 
   .header-content .tagline {
-    font-size: 0.7rem; /* Smaller tagline */
+    font-size: 0.7rem;
   }
 
   .scroll-down-button {
-    bottom: 30px; /* Adjust position for smaller screens */
-    font-size: 1.8rem; /* Adjust button size */
+    bottom: 30px;
+    font-size: 1.8rem;
   }
 }
