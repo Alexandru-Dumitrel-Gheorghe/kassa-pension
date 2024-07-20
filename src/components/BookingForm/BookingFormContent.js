@@ -4,17 +4,16 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./BookingForm.css";
 import ro from "date-fns/locale/ro"; // Import Romanian locale
-
 registerLocale("ro", ro); // Register Romanian locale
 
 const rooms = [
-  { title: "Camera Aur", basePrice: 350 },
-  { title: "Camera Argint", basePrice: 300 },
-  { title: "Camera Bronz", basePrice: 250 },
-  { title: "Camera Platină", basePrice: 400 },
-  { title: "Camera Diamant", basePrice: 450 },
-  { title: "Camera Perla", basePrice: 270 },
-  { title: "Camera Rubin", basePrice: 320 },
+  { title: "Camera Aur" },
+  { title: "Camera Argint" },
+  { title: "Camera Bronz" },
+  { title: "Camera Platină" },
+  { title: "Camera Diamant" },
+  { title: "Camera Perla" },
+  { title: "Camera Rubin" },
 ];
 
 const BookingFormContent = () => {
@@ -35,135 +34,77 @@ const BookingFormContent = () => {
     guests: "",
     message: "",
     room: defaultRoom,
-    price: 0, // Initial price set to 0
     paymentMethod: "cash", // Default payment method
   });
 
   const [submitMessage, setSubmitMessage] = useState("");
-  const [roomAvailability, setRoomAvailability] = useState({});
   const [dynamicPrices, setDynamicPrices] = useState({});
 
   useEffect(() => {
-    const fetchBookings = async () => {
-      const response = await fetch("http://localhost:5000/api/bookings");
-      const data = await response.json();
-
-      const availability = {};
-      data.forEach((booking) => {
-        if (!availability[booking.room]) {
-          availability[booking.room] = [];
-        }
-        availability[booking.room].push({
-          checkInDate: new Date(booking.checkInDate),
-          checkOutDate: new Date(booking.checkOutDate),
-        });
-      });
-      setRoomAvailability(availability);
-    };
-
     const fetchDynamicPrices = async () => {
-      const prices = {};
-      for (const room of rooms) {
-        const response = await fetch(
-          "http://localhost:5000/api/check-availability",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ room: room.title }),
-          }
-        );
+      try {
+        const response = await fetch("http://localhost:5000/api/bookings");
         const data = await response.json();
-        prices[room.title] = data.price;
+        const prices = {};
+        data.forEach((booking) => {
+          if (!prices[booking.room]) {
+            prices[booking.room] = 0;
+          }
+          prices[booking.room] += 1;
+        });
+
+        Object.keys(prices).forEach((room) => {
+          prices[room] =
+            rooms.find((r) => r.title === room).basePrice *
+            (1 + prices[room] * 0.1);
+        });
+
+        setDynamicPrices(prices);
+      } catch (error) {
+        console.error("Error fetching dynamic prices:", error);
       }
-      setDynamicPrices(prices);
     };
 
-    fetchBookings();
     fetchDynamicPrices();
   }, []);
 
-  const calculatePrice = (checkInDate, checkOutDate, roomTitle) => {
-    const room = rooms.find((room) => room.title === roomTitle);
-    const dynamicPrice = dynamicPrices[roomTitle] || room.basePrice;
-    if (!checkInDate || !checkOutDate || !room) {
-      return 0;
-    }
-    const timeDiff = Math.abs(checkOutDate - checkInDate);
-    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    return daysDiff * dynamicPrice;
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let updatedFormData = { ...formData, [name]: value };
-
-    if (name === "room") {
-      updatedFormData.price = calculatePrice(
-        formData.checkInDate,
-        formData.checkOutDate,
-        value
-      );
-    } else if (name === "checkInDate" || name === "checkOutDate") {
-      updatedFormData.price = calculatePrice(
-        updatedFormData.checkInDate,
-        updatedFormData.checkOutDate,
-        formData.room
-      );
-    }
-
-    setFormData(updatedFormData);
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleCheckInDateChange = (date) => {
-    const updatedFormData = {
-      ...formData,
-      checkInDate: date,
-      price: calculatePrice(date, formData.checkOutDate, formData.room),
-    };
-    setFormData(updatedFormData);
+    setFormData({ ...formData, checkInDate: date });
   };
 
   const handleCheckOutDateChange = (date) => {
-    const updatedFormData = {
-      ...formData,
-      checkOutDate: date,
-      price: calculatePrice(formData.checkInDate, date, formData.room),
-    };
-    setFormData(updatedFormData);
+    setFormData({ ...formData, checkOutDate: date });
   };
 
-  const isRoomAvailable = (room, checkInDate, checkOutDate) => {
-    if (!roomAvailability[room]) {
-      return true;
-    }
-    return roomAvailability[room].every((booking) => {
-      const bookingCheckIn = new Date(booking.checkInDate);
-      const bookingCheckOut = new Date(booking.checkOutDate);
-      const proposedCheckIn = new Date(checkInDate);
-      const proposedCheckOut = new Date(checkOutDate);
-
-      return (
-        proposedCheckOut <= bookingCheckIn ||
-        proposedCheckIn >= bookingCheckOut ||
-        (proposedCheckIn.toDateString() === bookingCheckOut.toDateString() &&
-          proposedCheckIn.getHours() >= 11)
-      );
-    });
+  const isRoomAvailable = async (room, checkInDate, checkOutDate) => {
+    const response = await fetch(
+      "http://localhost:5000/api/check-availability",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ room, checkInDate, checkOutDate }),
+      }
+    );
+    const data = await response.json();
+    return data.available;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formatDateTime = (date, time) => {
-      if (date && time) {
-        const [hours, minutes] = time.split(":");
-        const adjustedDate = new Date(date);
-        adjustedDate.setHours(hours, minutes);
-        return adjustedDate.toISOString();
-      }
-      return null;
+      return date && time
+        ? new Date(
+            `${date.toISOString().split("T")[0]}T${time}:00`
+          ).toISOString()
+        : null;
     };
 
     const completeFormData = {
@@ -177,20 +118,20 @@ const BookingFormContent = () => {
       ),
     };
 
+    // Check for invalid dates
     if (!completeFormData.checkInDate || !completeFormData.checkOutDate) {
-      setSubmitMessage(
-        "Please provide valid check-in and check-out dates and times."
-      );
+      setSubmitMessage("Please provide valid check-in and check-out dates.");
       return;
     }
 
-    if (
-      !isRoomAvailable(
-        completeFormData.room,
-        completeFormData.checkInDate,
-        completeFormData.checkOutDate
-      )
-    ) {
+    // Check room availability
+    const available = await isRoomAvailable(
+      completeFormData.room,
+      completeFormData.checkInDate,
+      completeFormData.checkOutDate
+    );
+
+    if (!available) {
       setSubmitMessage(
         `Camera ${
           completeFormData.room
@@ -199,9 +140,20 @@ const BookingFormContent = () => {
       return;
     }
 
-    if (completeFormData.paymentMethod === "card") {
-      navigate("/payment", { state: { formData: completeFormData } });
+    // Calculate total price
+    const timeDiff = Math.abs(
+      new Date(completeFormData.checkOutDate) -
+        new Date(completeFormData.checkInDate)
+    );
+    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    const totalPrice = daysDiff * (dynamicPrices[completeFormData.room] || 0);
+    completeFormData.price = totalPrice;
+
+    // If payment method is card, redirect to payment page
+    if (formData.paymentMethod === "card") {
+      navigate("/payment", { state: { ...completeFormData } });
     } else {
+      // Submit the booking
       try {
         const response = await fetch("http://localhost:5000/api/book-now", {
           method: "POST",
@@ -227,7 +179,6 @@ const BookingFormContent = () => {
             guests: "",
             message: "",
             room: rooms[0].title,
-            price: 0,
             paymentMethod: "cash",
           });
         } else {
@@ -243,24 +194,6 @@ const BookingFormContent = () => {
         );
       }
     }
-  };
-
-  const highlightDates = (roomTitle) => {
-    if (!roomAvailability[roomTitle]) return [];
-    return roomAvailability[roomTitle].flatMap(
-      ({ checkInDate, checkOutDate }) => {
-        const dates = [];
-        for (
-          let d = new Date(checkInDate);
-          d <= checkOutDate;
-          d.setDate(d.getDate() + 1)
-        ) {
-          dates.push(new Date(d));
-        }
-        dates.push(new Date(new Date(checkOutDate).setHours(11, 0, 0, 0)));
-        return dates;
-      }
-    );
   };
 
   return (
@@ -347,19 +280,6 @@ const BookingFormContent = () => {
             locale="ro"
             placeholderText="Selectează data"
             minDate={new Date()}
-            highlightDates={[
-              {
-                "react-datepicker__day--highlighted-custom-1": highlightDates(
-                  formData.room
-                ),
-              },
-            ]}
-            filterDate={(date) =>
-              !highlightDates(formData.room).some(
-                (highlightedDate) =>
-                  highlightedDate.getTime() === date.getTime()
-              )
-            }
             className="form-control"
           />
         </div>
@@ -374,19 +294,6 @@ const BookingFormContent = () => {
             locale="ro"
             placeholderText="Selectează data"
             minDate={formData.checkInDate || new Date()}
-            highlightDates={[
-              {
-                "react-datepicker__day--highlighted-custom-1": highlightDates(
-                  formData.room
-                ),
-              },
-            ]}
-            filterDate={(date) =>
-              !highlightDates(formData.room).some(
-                (highlightedDate) =>
-                  highlightedDate.getTime() === date.getTime()
-              )
-            }
             className="form-control"
           />
         </div>
@@ -426,7 +333,7 @@ const BookingFormContent = () => {
           </select>
         </div>
         <div className="booking-form-group">
-          <label>Metodă de Plată</label>
+          <label>Metoda de Plată</label>
           <select
             className="form-control"
             name="paymentMethod"
@@ -436,15 +343,6 @@ const BookingFormContent = () => {
             <option value="cash">Cash</option>
             <option value="card">Card</option>
           </select>
-        </div>
-        <div className="booking-form-group">
-          <label>Preț Total</label>
-          <input
-            type="text"
-            className="form-control"
-            value={`${formData.price} RON`}
-            readOnly
-          />
         </div>
         <div className="booking-btn-container">
           <button type="submit" className="booking-btn">

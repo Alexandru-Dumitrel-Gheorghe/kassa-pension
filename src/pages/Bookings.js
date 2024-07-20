@@ -78,6 +78,8 @@ const Bookings = () => {
               <th>Check-out Time</th>
               <th>Guests</th>
               <th>Message</th>
+              <th>Price</th>
+              <th>Payment Method</th>
             </tr>
           </thead>
           <tbody>
@@ -102,6 +104,12 @@ const Bookings = () => {
                 </td>
                 <td data-label="Guests">{booking.guests}</td>
                 <td data-label="Message">{booking.message}</td>
+                <td data-label="Price">
+                  {booking.price ? `${booking.price} RON` : "N/A"}
+                </td>
+                <td data-label="Payment Method">
+                  {booking.paymentMethod ? booking.paymentMethod : "N/A"}
+                </td>
               </tr>
             ))}
           </tbody>
