@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./ScrollToTop";
 import BookingForm from "./pages/BookingForm";
 import Gallery from "./pages/Gallery";
+import PaymentPage from "./components/Payment/PaymentPage"; // Importă PaymentPage
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -41,6 +42,8 @@ const App = () => {
         <Route path="/section" element={<Section />} />
         <Route path="/booking" element={<BookingForm rooms={rooms} />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/payment" element={<PaymentPage />} />{" "}
+        {/* Adaugă ruta pentru PaymentPage */}
       </Routes>
       <ContactSection />
       <Footer />

@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./BookingForm.css";
 import ro from "date-fns/locale/ro"; // Import Romanian locale
+
 registerLocale("ro", ro); // Register Romanian locale
 
 const rooms = [
-  { title: "Camera Aur" },
-  { title: "Camera Argint" },
-  { title: "Camera Bronz" },
-  { title: "Camera Platină" },
-  { title: "Camera Diamant" },
-  { title: "Camera Perla" },
-  { title: "Camera Rubin" },
+  { title: "Camera Aur", basePrice: 350 },
+  { title: "Camera Argint", basePrice: 300 },
+  { title: "Camera Bronz", basePrice: 250 },
+  { title: "Camera Platină", basePrice: 400 },
+  { title: "Camera Diamant", basePrice: 450 },
+  { title: "Camera Perla", basePrice: 270 },
+  { title: "Camera Rubin", basePrice: 320 },
 ];
 
 const BookingFormContent = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const defaultRoom = location.state?.roomTitle || rooms[0].title;
   const [formData, setFormData] = useState({
     firstName: "",
@@ -33,10 +35,13 @@ const BookingFormContent = () => {
     guests: "",
     message: "",
     room: defaultRoom,
+    price: 0, // Initial price set to 0
+    paymentMethod: "cash", // Default payment method
   });
 
   const [submitMessage, setSubmitMessage] = useState("");
   const [roomAvailability, setRoomAvailability] = useState({});
+  const [dynamicPrices, setDynamicPrices] = useState({});
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -56,20 +61,77 @@ const BookingFormContent = () => {
       setRoomAvailability(availability);
     };
 
+    const fetchDynamicPrices = async () => {
+      const prices = {};
+      for (const room of rooms) {
+        const response = await fetch(
+          "http://localhost:5000/api/check-availability",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ room: room.title }),
+          }
+        );
+        const data = await response.json();
+        prices[room.title] = data.price;
+      }
+      setDynamicPrices(prices);
+    };
+
     fetchBookings();
+    fetchDynamicPrices();
   }, []);
+
+  const calculatePrice = (checkInDate, checkOutDate, roomTitle) => {
+    const room = rooms.find((room) => room.title === roomTitle);
+    const dynamicPrice = dynamicPrices[roomTitle] || room.basePrice;
+    if (!checkInDate || !checkOutDate || !room) {
+      return 0;
+    }
+    const timeDiff = Math.abs(checkOutDate - checkInDate);
+    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    return daysDiff * dynamicPrice;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    let updatedFormData = { ...formData, [name]: value };
+
+    if (name === "room") {
+      updatedFormData.price = calculatePrice(
+        formData.checkInDate,
+        formData.checkOutDate,
+        value
+      );
+    } else if (name === "checkInDate" || name === "checkOutDate") {
+      updatedFormData.price = calculatePrice(
+        updatedFormData.checkInDate,
+        updatedFormData.checkOutDate,
+        formData.room
+      );
+    }
+
+    setFormData(updatedFormData);
   };
 
   const handleCheckInDateChange = (date) => {
-    setFormData({ ...formData, checkInDate: date });
+    const updatedFormData = {
+      ...formData,
+      checkInDate: date,
+      price: calculatePrice(date, formData.checkOutDate, formData.room),
+    };
+    setFormData(updatedFormData);
   };
 
   const handleCheckOutDateChange = (date) => {
-    setFormData({ ...formData, checkOutDate: date });
+    const updatedFormData = {
+      ...formData,
+      checkOutDate: date,
+      price: calculatePrice(formData.checkInDate, date, formData.room),
+    };
+    setFormData(updatedFormData);
   };
 
   const isRoomAvailable = (room, checkInDate, checkOutDate) => {
@@ -137,43 +199,49 @@ const BookingFormContent = () => {
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:5000/api/book-now", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(completeFormData),
-      });
-      const data = await response.json();
-      if (data.success) {
-        setSubmitMessage("Rezervarea ta a fost trimisă cu succes!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phonePrefix: "",
-          phoneNumber: "",
-          address: "",
-          checkInDate: null,
-          checkInTime: "15:00",
-          checkOutDate: null,
-          checkOutTime: "11:00",
-          guests: "",
-          message: "",
-          room: rooms[0].title,
+    if (completeFormData.paymentMethod === "card") {
+      navigate("/payment", { state: { formData: completeFormData } });
+    } else {
+      try {
+        const response = await fetch("http://localhost:5000/api/book-now", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(completeFormData),
         });
-      } else {
-        console.error("Error:", data.error);
+        const data = await response.json();
+        if (data.success) {
+          setSubmitMessage("Rezervarea ta a fost trimisă cu succes!");
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phonePrefix: "",
+            phoneNumber: "",
+            address: "",
+            checkInDate: null,
+            checkInTime: "15:00",
+            checkOutDate: null,
+            checkOutTime: "11:00",
+            guests: "",
+            message: "",
+            room: rooms[0].title,
+            price: 0,
+            paymentMethod: "cash",
+          });
+        } else {
+          console.error("Error:", data.error);
+          setSubmitMessage(
+            "Trimiterea rezervării a eșuat. Te rugăm să încerci din nou."
+          );
+        }
+      } catch (error) {
+        console.error("Error:", error);
         setSubmitMessage(
           "Trimiterea rezervării a eșuat. Te rugăm să încerci din nou."
         );
       }
-    } catch (error) {
-      console.error("Error:", error);
-      setSubmitMessage(
-        "Trimiterea rezervării a eșuat. Te rugăm să încerci din nou."
-      );
     }
   };
 
@@ -192,16 +260,6 @@ const BookingFormContent = () => {
         dates.push(new Date(new Date(checkOutDate).setHours(11, 0, 0, 0)));
         return dates;
       }
-    );
-  };
-
-  const isDateHighlighted = (date, roomTitle) => {
-    const highlightedDates = highlightDates(roomTitle);
-    return highlightedDates.some(
-      (highlightedDate) =>
-        highlightedDate.getFullYear() === date.getFullYear() &&
-        highlightedDate.getMonth() === date.getMonth() &&
-        highlightedDate.getDate() === date.getDate()
     );
   };
 
@@ -289,7 +347,19 @@ const BookingFormContent = () => {
             locale="ro"
             placeholderText="Selectează data"
             minDate={new Date()}
-            filterDate={(date) => !isDateHighlighted(date, formData.room)}
+            highlightDates={[
+              {
+                "react-datepicker__day--highlighted-custom-1": highlightDates(
+                  formData.room
+                ),
+              },
+            ]}
+            filterDate={(date) =>
+              !highlightDates(formData.room).some(
+                (highlightedDate) =>
+                  highlightedDate.getTime() === date.getTime()
+              )
+            }
             className="form-control"
           />
         </div>
@@ -304,7 +374,19 @@ const BookingFormContent = () => {
             locale="ro"
             placeholderText="Selectează data"
             minDate={formData.checkInDate || new Date()}
-            filterDate={(date) => !isDateHighlighted(date, formData.room)}
+            highlightDates={[
+              {
+                "react-datepicker__day--highlighted-custom-1": highlightDates(
+                  formData.room
+                ),
+              },
+            ]}
+            filterDate={(date) =>
+              !highlightDates(formData.room).some(
+                (highlightedDate) =>
+                  highlightedDate.getTime() === date.getTime()
+              )
+            }
             className="form-control"
           />
         </div>
@@ -342,6 +424,27 @@ const BookingFormContent = () => {
               </option>
             ))}
           </select>
+        </div>
+        <div className="booking-form-group">
+          <label>Metodă de Plată</label>
+          <select
+            className="form-control"
+            name="paymentMethod"
+            value={formData.paymentMethod}
+            onChange={handleChange}
+          >
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+          </select>
+        </div>
+        <div className="booking-form-group">
+          <label>Preț Total</label>
+          <input
+            type="text"
+            className="form-control"
+            value={`${formData.price} RON`}
+            readOnly
+          />
         </div>
         <div className="booking-btn-container">
           <button type="submit" className="booking-btn">
