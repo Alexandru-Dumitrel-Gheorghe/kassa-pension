@@ -86,6 +86,20 @@
   color: #721c24 !important;
 }
 
+.react-datepicker {
+  width: 100%; /* Ensure the date picker is full width */
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  font-size: 16px; /* Prevent zoom on mobile devices */
+}
+
+.react-datepicker__header {
+  background-color: #155724; /* Change the background color of the header */
+  border-bottom: 1px solid #ccc;
+}
+
 @media (max-width: 768px) {
   .booking-form-wrapper {
     padding: 10px;
@@ -100,5 +114,17 @@
   .booking-btn {
     padding: 8px 16px; /* Adjusted for smaller screens */
     font-size: 14px;
+  }
+
+  .react-datepicker {
+    width: 100%; /* Ensure the date picker is full width on smaller screens */
+  }
+
+  .react-datepicker__input-container input {
+    width: 100%; /* Ensure the input is full width on smaller screens */
+  }
+
+  .react-datepicker__month-container {
+    width: 100%; /* Ensure the month container is full width on smaller screens */
   }
 }
