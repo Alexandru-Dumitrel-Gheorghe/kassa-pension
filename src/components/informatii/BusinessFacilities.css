@@ -11,27 +11,62 @@
   color: #2e856e;
   text-transform: uppercase;
   font-weight: bold;
+  position: relative;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .business-facility-card {
   margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.business-facility-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .business-facility-icon {
   font-size: 4rem;
   color: #d4af37;
   margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.business-facility-card:hover .business-facility-icon {
+  color: #226b5f;
 }
 
 .business-facility-card h5 {
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: #226b5f;
+  transition: color 0.3s ease;
+}
+
+.business-facility-card:hover h5 {
+  color: #d4af37;
 }
 
 .business-facility-card p {
   font-size: 1rem;
   color: #333;
+  transition: color 0.3s ease;
+}
+
+.business-facility-card:hover p {
+  color: #555;
 }
 
 /* Media Queries */

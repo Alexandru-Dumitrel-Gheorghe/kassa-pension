@@ -28,7 +28,7 @@
   position: relative;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   opacity: 0; /* Hidden initially */
   transform: translateY(20px); /* Initial position for slide-in effect */
@@ -36,7 +36,7 @@
 }
 
 .about-header-content h1 {
-  margin-bottom: 20px; /* Add space between h1 and p */
+  margin-bottom: 5px; /* Add space between h1 and p */
   color: #d4af37;
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { FaWifi, FaUtensils, FaMountain, FaSpa, FaBath } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ const rooms = [
     title: "Camera Aur",
     description:
       "Căutați cea mai luxoasă ședere la Hotelul Olimpic? Alegeți camera Aur și rezervați acum! Camera este perfectă pentru o escapadă romantică.",
-    price: "350 RON/noapte",
+    basePrice: 350,
     features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la munte"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229640.jpg?k=9ef90112431b2592229bca2e09c5af87c41a7b17723ca30b74d73b719231afa9&o=&hp=1",
@@ -20,7 +20,7 @@ const rooms = [
     title: "Camera Argint",
     description:
       "Bucurați-vă de șederea dvs. în Camera Argint, cu facilități moderne și o frumoasă vedere a Brașovului.",
-    price: "300 RON/noapte",
+    basePrice: 300,
     features: ["WiFi Gratuit", "Mic dejun inclus"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229632.jpg?k=22c4c786d1734fff5a9fab4bb5ddd2be6c1a24f8770def966718a696a3236922&o=&hp=1",
@@ -31,7 +31,7 @@ const rooms = [
     title: "Camera Bronz",
     description:
       "Camera Bronz oferă confort și stil, perfectă pentru o ședere scurtă în Brașov.",
-    price: "250 RON/noapte",
+    basePrice: 250,
     features: ["WiFi Gratuit"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229671.jpg?k=c4b9a2d118261052b446b7f84c6af15176aaf51e806fd7c9812641b3af524674&o=&hp=1",
@@ -42,7 +42,7 @@ const rooms = [
     title: "Camera Platină",
     description:
       "Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.",
-    price: "400 RON/noapte",
+    basePrice: 400,
     features: [
       "WiFi Gratuit",
       "Mic dejun inclus",
@@ -58,7 +58,7 @@ const rooms = [
     title: "Camera Diamant",
     description:
       "Camera Diamant oferă un lux de neegalat și o vedere panoramică deosebită.",
-    price: "450 RON/noapte",
+    basePrice: 450,
     features: [
       "WiFi Gratuit",
       "Mic dejun inclus",
@@ -74,7 +74,7 @@ const rooms = [
     title: "Camera Perla",
     description:
       "Camera Perla oferă un confort extraordinar și facilități moderne.",
-    price: "270 RON/noapte",
+    basePrice: 270,
     features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la oraș"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229622.jpg?k=ebaf1f0086be7c579375df1678302b0552dc528ede7854cc571b7966a40ad850&o=&hp=1",
@@ -85,7 +85,7 @@ const rooms = [
     title: "Camera Rubin",
     description:
       "Camera Rubin este ideală pentru cei care doresc un sejur de neuitat, cu facilități premium.",
-    price: "320 RON/noapte",
+    basePrice: 320,
     features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la grădină"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229640.jpg?k=9ef90112431b2592229bca2e09c5af87c41a7b17723ca30b74d73b719231afa9&o=&hp=1",
@@ -107,6 +107,39 @@ const featureIcons = {
 
 const RoomCardsSection = () => {
   const navigate = useNavigate();
+  const [dynamicPrices, setDynamicPrices] = useState({});
+
+  useEffect(() => {
+    const fetchDynamicPrices = async () => {
+      const response = await fetch("http://localhost:5000/api/bookings");
+      const bookings = await response.json();
+
+      const prices = {};
+      const availability = {};
+
+      rooms.forEach((room) => {
+        const roomBookings = bookings.filter(
+          (booking) => booking.room === room.title
+        );
+
+        availability[room.title] = roomBookings.length === 0;
+      });
+
+      rooms.forEach((room) => {
+        let priceIncrease = 0;
+        rooms.forEach((r) => {
+          if (availability[r.title] === false) {
+            priceIncrease += 0.02;
+          }
+        });
+        prices[room.title] = room.basePrice * (1 + priceIncrease);
+      });
+
+      setDynamicPrices(prices);
+    };
+
+    fetchDynamicPrices();
+  }, []);
 
   const handleBookNow = (roomTitle) => {
     navigate("/book-now", { state: { roomTitle } });
@@ -116,7 +149,7 @@ const RoomCardsSection = () => {
     <Container className="room-cards-section">
       <Row>
         <Col>
-          <h2>Camerele Noastre</h2>
+          <h2 className="section-title">Camerele Noastre</h2>
         </Col>
       </Row>
       {rooms.map((room, index) => (
@@ -143,7 +176,11 @@ const RoomCardsSection = () => {
             <div className="room-description-content">
               <h3>{room.title}</h3>
               <p>{room.description}</p>
-              <p className="room-price">{room.price}</p>
+              <p className="room-price">
+                {dynamicPrices[room.title]
+                  ? `${dynamicPrices[room.title].toFixed(2)} RON/noapte`
+                  : "Calculating..."}
+              </p>
               <ul className="room-features">
                 {room.features.map((feature, idx) => (
                   <li key={idx}>

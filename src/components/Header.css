@@ -51,7 +51,7 @@
 }
 
 .header-content .tagline {
-  font-size: 1.2rem;
+  --font-size-medium: 1.5em;
   margin-bottom: 20px;
   color: #f0e68c;
 }

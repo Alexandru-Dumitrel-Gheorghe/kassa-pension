@@ -75,10 +75,6 @@
   cursor: pointer;
 }
 
-.pagination button.active {
-  background-color: #1e5646;
-}
-
 .pagination button:hover {
   background-color: #1e5646;
 }

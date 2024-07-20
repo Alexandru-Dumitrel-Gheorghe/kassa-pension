@@ -28,6 +28,7 @@
 }
 
 .info-section h2 {
+  --font-size-large: 2em !important;
   margin-bottom: 20px;
   color: #d4af37;
   animation: fadeIn 1.5s ease-in-out;
@@ -35,7 +36,7 @@
 
 .info-section p {
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  --font-size-medium: 1.5em;
   animation: fadeIn 1.5s ease-in-out;
 }
 

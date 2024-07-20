@@ -27,7 +27,7 @@
   position: relative;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   opacity: 0; /* Hidden initially */
   transform: translateY(20px); /* Initial position for slide-in effect */

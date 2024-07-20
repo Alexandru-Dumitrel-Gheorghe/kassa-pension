@@ -12,21 +12,21 @@
   margin: 0 auto;
 }
 
-.about-info-content h2 {
+.about-info-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #d4af37;
-}
-
-.about-info-facilities-toggle {
-  display: inline-block;
   cursor: pointer;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1.5s infinite;
 }
 
 .about-info-toggle-icon {
   font-size: 2rem;
   color: #d4af37;
+  margin-left: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -58,7 +58,7 @@
   border-radius: 10px;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 120px; /* Adjust the width as needed */
+  width: 120px; /* Ajustează lățimea după nevoie */
   text-align: center;
   margin: 10px; /* Spațiu între carduri */
 }
@@ -83,6 +83,19 @@
   background-color: #fff;
   color: #226b5f;
   transform: rotate(-5deg);
+}
+
+/* Animație Pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Media Queries */
@@ -114,7 +127,7 @@
   }
 
   .about-info-facilities-list {
-    gap: 15px; /* Adjust the gap for smaller screens */
+    gap: 15px; /* Ajustează spațiul pentru ecrane mai mici */
   }
 }
 
@@ -132,12 +145,12 @@
   }
 
   .about-info-facilities-list {
-    gap: 10px; /* Adjust the gap for smaller screens */
+    gap: 10px; /* Ajustează spațiul pentru ecrane mai mici */
   }
 
   .about-info-facility-item {
-    width: 45%; /* Adjust the width for smaller screens */
-    height: 100px; /* Adjust the height for smaller screens */
+    width: 45%; /* Ajustează lățimea pentru ecrane mai mici */
+    height: 100px; /* Ajustează înălțimea pentru ecrane mai mici */
   }
 
   .about-info-facility-icon {
@@ -164,8 +177,8 @@
   }
 
   .about-info-facility-item {
-    width: 70%; /* Adjust the width for smaller screens */
-    height: 80px; /* Adjust the height for smaller screens */
+    width: 70%; /* Ajustează lățimea pentru ecrane mai mici */
+    height: 80px; /* Ajustează înălțimea pentru ecrane mai mici */
   }
 
   .about-info-facility-icon {

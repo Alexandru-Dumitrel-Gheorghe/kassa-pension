@@ -37,16 +37,13 @@ const AboutInfoSection = () => {
   return (
     <div className="about-info-section">
       <div className="about-info-content">
-        <h2>Descoperă facilitățile noastre.</h2>
-        <div
-          className="about-info-facilities-toggle"
-          onClick={handleToggleFacilities}
-        >
+        <h2 className="about-info-title" onClick={handleToggleFacilities}>
+          Descoperă facilitățile noastre.
           <FontAwesomeIcon
             icon={showFacilities ? faChevronUp : faChevronDown}
             className="about-info-toggle-icon"
           />
-        </div>
+        </h2>
         <div
           className={`about-info-facilities-list ${
             showFacilities ? "open" : ""

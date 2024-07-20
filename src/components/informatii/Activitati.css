@@ -6,7 +6,7 @@
 }
 
 .business-activities-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 40px;
   color: #2e856e;
   text-transform: uppercase;
@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: pulse 1.5s infinite;
 }
 
 .business-activities-title svg {
@@ -53,6 +54,19 @@
 .business-activity-card p {
   font-size: 1rem;
   color: #333;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Media Queries */

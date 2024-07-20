@@ -78,12 +78,12 @@
 
 .booking-alert-success {
   background-color: #d4edda;
-  color: #155724;
+  color: #155724 !important;
 }
 
 .booking-alert-danger {
   background-color: #f8d7da;
-  color: #721c24;
+  color: #721c24 !important;
 }
 
 @media (max-width: 768px) {
