@@ -18,7 +18,7 @@
 }
 
 .section-description {
-  --font-size-default: 1em;
+  font-size: 1.2rem;
   margin-bottom: 20px;
   color: white;
   line-height: 2;
@@ -89,7 +89,7 @@
 
 @media (max-width: 576px) {
   .section {
-    padding: 40px 5px;
+    padding: 15px 5px;
     min-height: auto;
     padding-bottom: 5px;
   }

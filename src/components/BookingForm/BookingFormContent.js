@@ -39,18 +39,34 @@ const BookingFormContent = () => {
 
   const [submitMessage, setSubmitMessage] = useState("");
   const [dynamicPrices, setDynamicPrices] = useState({});
+  const [bookedDates, setBookedDates] = useState({});
 
   useEffect(() => {
-    const fetchDynamicPrices = async () => {
+    const fetchBookings = async () => {
       try {
         const response = await fetch("http://localhost:5000/api/bookings");
         const data = await response.json();
         const prices = {};
+        const booked = {};
+
         data.forEach((booking) => {
           if (!prices[booking.room]) {
             prices[booking.room] = 0;
           }
           prices[booking.room] += 1;
+
+          if (!booked[booking.room]) {
+            booked[booking.room] = [];
+          }
+          const checkIn = new Date(booking.checkInDate);
+          const checkOut = new Date(booking.checkOutDate);
+          for (
+            let d = new Date(checkIn);
+            d <= checkOut;
+            d.setDate(d.getDate() + 1)
+          ) {
+            booked[booking.room].push(new Date(d));
+          }
         });
 
         Object.keys(prices).forEach((room) => {
@@ -60,12 +76,13 @@ const BookingFormContent = () => {
         });
 
         setDynamicPrices(prices);
+        setBookedDates(booked);
       } catch (error) {
         console.error("Error fetching dynamic prices:", error);
       }
     };
 
-    fetchDynamicPrices();
+    fetchBookings();
   }, []);
 
   const handleChange = (e) => {
@@ -196,6 +213,13 @@ const BookingFormContent = () => {
     }
   };
 
+  const isDateBooked = (date) => {
+    const { room } = formData;
+    return bookedDates[room]?.some(
+      (bookedDate) => bookedDate.toDateString() === date.toDateString()
+    );
+  };
+
   return (
     <div className="booking-form-wrapper">
       <form className="booking-form" onSubmit={handleSubmit}>
@@ -280,6 +304,7 @@ const BookingFormContent = () => {
             locale="ro"
             placeholderText="Selectează data"
             minDate={new Date()}
+            filterDate={(date) => !isDateBooked(date)}
             className="form-control"
           />
         </div>
@@ -294,6 +319,7 @@ const BookingFormContent = () => {
             locale="ro"
             placeholderText="Selectează data"
             minDate={formData.checkInDate || new Date()}
+            filterDate={(date) => !isDateBooked(date)}
             className="form-control"
           />
         </div>

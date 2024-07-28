@@ -12,10 +12,9 @@ const Section = () => {
               Bine ați venit la Pensiunea Kassa,
             </h1>
             <p className="section-description">
-              Situată în inima Brașovului, unde tradiția și confortul modern se
-              întâlnesc pentru a vă oferi o experiență de neuitat. Pensiunea
-              noastră este locul ideal pentru a descoperi frumusețile istorice
-              și naturale ale acestui oraș minunat.
+              Situată în inima Brașovului, unde tradiția <br></br> și confortul
+              modern se întâlnesc pentru a vă <br></br> oferi o experiență de
+              neuitat.
             </p>
           </Col>
         </Row>

@@ -9,11 +9,11 @@ const PaymentForm = ({ handlePaymentSuccess }) => {
   const elements = useElements();
   const location = useLocation();
   const navigate = useNavigate();
-  const { formData } = location.state;
+  const formData = location.state?.formData || {};
 
-  const [email, setEmail] = useState(formData.email);
+  const [email, setEmail] = useState(formData.email || "");
   const [name, setName] = useState(
-    formData.firstName + " " + formData.lastName
+    `${formData.firstName || ""} ${formData.lastName || ""}`
   );
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);

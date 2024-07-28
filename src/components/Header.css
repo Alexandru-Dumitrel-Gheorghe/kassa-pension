@@ -75,17 +75,18 @@
 
 .scroll-down-button {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 40px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   background: none;
   border: none;
   font-size: 2.5rem;
-  color: #d4af37;
-  cursor: pointer;
-  animation: bounce 2s infinite;
-  z-index: 2;
+  color: #d4af37 !important;
+  cursor: pointer !important;
+  animation: bounce 2s infinite !important;
+  z-index: 2 !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 2rem !important;
 }
 
 .scroll-down-button:hover {
@@ -178,7 +179,7 @@
 
 @media (max-width: 576px) {
   .header {
-    height: 80vh;
+    height: 100vh;
   }
 
   .header-content {
