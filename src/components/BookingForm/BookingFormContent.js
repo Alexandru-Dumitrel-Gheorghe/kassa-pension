@@ -3,53 +3,59 @@ import { useLocation, useNavigate } from "react-router-dom";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./BookingForm.css";
-import ro from "date-fns/locale/ro"; // Import Romanian locale
-registerLocale("ro", ro); // Register Romanian locale
+import ro from "date-fns/locale/ro"; // importam localizarea in limba romana
 
+registerLocale("ro", ro); // inregistram localizarea pentru datepicker
+
+// definim camerele disponibile
 const rooms = [
   { title: "Camera Aur" },
   { title: "Camera Argint" },
   { title: "Camera Bronz" },
-  { title: "Camera Platină" },
+  { title: "Camera Platina" },
   { title: "Camera Diamant" },
   { title: "Camera Perla" },
   { title: "Camera Rubin" },
 ];
 
 const BookingFormContent = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const defaultRoom = location.state?.roomTitle || rooms[0].title;
+  const location = useLocation(); // obtinem locatia curenta pentru a accesa starea trimisa
+  const navigate = useNavigate(); // functie pentru navigare in alte pagini
+  const defaultRoom = location.state?.roomTitle || rooms[0].title; // camera implicita este preluata din starea trimisa sau prima din lista
+
+  // initializam starea pentru datele formularului
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phonePrefix: "",
-    phoneNumber: "",
-    address: "",
-    checkInDate: null,
-    checkInTime: "15:00", // Default check-in time
-    checkOutDate: null,
-    checkOutTime: "11:00", // Default check-out time
-    guests: "",
-    message: "",
-    room: defaultRoom,
-    paymentMethod: "cash", // Default payment method
+    firstName: "", // prenume
+    lastName: "", // nume de familie
+    email: "", // email
+    phonePrefix: "", // prefixul de telefon
+    phoneNumber: "", // numarul de telefon
+    address: "", // adresa
+    checkInDate: null, // data de check-in
+    checkInTime: "15:00", // ora implicita de check-in
+    checkOutDate: null, // data de check-out
+    checkOutTime: "11:00", // ora implicita de check-out
+    guests: "", // numarul de oaspeti
+    message: "", // observatii
+    room: defaultRoom, // camera selectata
+    paymentMethod: "cash", // metoda de plata implicita
   });
 
-  const [submitMessage, setSubmitMessage] = useState("");
-  const [dynamicPrices, setDynamicPrices] = useState({});
-  const [bookedDates, setBookedDates] = useState({});
+  const [submitMessage, setSubmitMessage] = useState(""); // mesajul de confirmare sau eroare la trimiterea formularului
+  const [dynamicPrices, setDynamicPrices] = useState({}); // preturile dinamice pentru camere
+  const [bookedDates, setBookedDates] = useState({}); // datele deja rezervate
 
+  // efect pentru a prelua datele de rezervari la montarea componentei
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/bookings");
-        const data = await response.json();
-        const prices = {};
-        const booked = {};
+        const response = await fetch("http://localhost:5000/api/bookings"); // apel catre API pentru a obtine rezervarile
+        const data = await response.json(); // convertim raspunsul la format json
+        const prices = {}; // obiect pentru a stoca preturile dinamice
+        const booked = {}; // obiect pentru a stoca datele rezervate
 
         data.forEach((booking) => {
+          // calculam preturile si datele rezervate
           if (!prices[booking.room]) {
             prices[booking.room] = 0;
           }
@@ -65,39 +71,44 @@ const BookingFormContent = () => {
             d <= checkOut;
             d.setDate(d.getDate() + 1)
           ) {
-            booked[booking.room].push(new Date(d));
+            booked[booking.room].push(new Date(d)); // adaugam fiecare zi intre check-in si check-out in booked
           }
         });
 
+        // calculam pretul final al fiecarei camere
         Object.keys(prices).forEach((room) => {
           prices[room] =
             rooms.find((r) => r.title === room).basePrice *
-            (1 + prices[room] * 0.1);
+            (1 + prices[room] * 0.1); // aplicam o crestere de pret pe baza cererii
         });
 
-        setDynamicPrices(prices);
-        setBookedDates(booked);
+        setDynamicPrices(prices); // actualizam starea cu preturile dinamice
+        setBookedDates(booked); // actualizam starea cu datele rezervate
       } catch (error) {
-        console.error("Error fetching dynamic prices:", error);
+        console.error("Error fetching dynamic prices:", error); // gestionam eventualele erori
       }
     };
 
-    fetchBookings();
+    fetchBookings(); // apelam functia de preluare a rezervarilor
   }, []);
 
+  // functie pentru a gestiona modificarile in formular
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value } = e.target; // obtinem numele si valoarea campului modificat
+    setFormData({ ...formData, [name]: value }); // actualizam starea formularului
   };
 
+  // functie pentru a seta data de check-in
   const handleCheckInDateChange = (date) => {
     setFormData({ ...formData, checkInDate: date });
   };
 
+  // functie pentru a seta data de check-out
   const handleCheckOutDateChange = (date) => {
     setFormData({ ...formData, checkOutDate: date });
   };
 
+  // functie pentru a verifica disponibilitatea unei camere
   const isRoomAvailable = async (room, checkInDate, checkOutDate) => {
     const response = await fetch(
       "http://localhost:5000/api/check-availability",
@@ -106,16 +117,18 @@ const BookingFormContent = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ room, checkInDate, checkOutDate }),
+        body: JSON.stringify({ room, checkInDate, checkOutDate }), // trimitem datele catre API
       }
     );
     const data = await response.json();
-    return data.available;
+    return data.available; // returnam disponibilitatea camerei
   };
 
+  // functie pentru a gestiona trimiterea formularului
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevenim reincarcarea paginii
 
+    // functie pentru a formata data si ora intr-un format standardizat
     const formatDateTime = (date, time) => {
       return date && time
         ? new Date(
@@ -124,53 +137,57 @@ const BookingFormContent = () => {
         : null;
     };
 
+    // completam datele din formular cu informatiile necesare
     const completeFormData = {
       ...formData,
-      phone: `${formData.phonePrefix}${formData.phoneNumber}`,
-      name: `${formData.firstName} ${formData.lastName}`,
-      checkInDate: formatDateTime(formData.checkInDate, formData.checkInTime),
+      phone: `${formData.phonePrefix}${formData.phoneNumber}`, // concatenam prefixul si numarul de telefon
+      name: `${formData.firstName} ${formData.lastName}`, // concatenam prenumele si numele de familie
+      checkInDate: formatDateTime(formData.checkInDate, formData.checkInTime), // formatarea datei de check-in
       checkOutDate: formatDateTime(
         formData.checkOutDate,
         formData.checkOutTime
-      ),
+      ), // formatarea datei de check-out
     };
 
-    // Check for invalid dates
+    // verificam daca datele de check-in si check-out sunt valide
     if (!completeFormData.checkInDate || !completeFormData.checkOutDate) {
-      setSubmitMessage("Please provide valid check-in and check-out dates.");
+      setSubmitMessage(
+        "te rugam sa furnizezi date valide pentru check-in si check-out."
+      );
       return;
     }
 
-    // Check room availability
+    // verificam disponibilitatea camerei
     const available = await isRoomAvailable(
       completeFormData.room,
       completeFormData.checkInDate,
       completeFormData.checkOutDate
     );
 
+    // daca camera nu este disponibila, afisam un mesaj corespunzator
     if (!available) {
       setSubmitMessage(
-        `Camera ${
+        `camera ${
           completeFormData.room
-        } nu este disponibilă între ${formData.checkInDate.toLocaleDateString()} și ${formData.checkOutDate.toLocaleDateString()}.`
+        } nu este disponibila intre ${formData.checkInDate.toLocaleDateString()} si ${formData.checkOutDate.toLocaleDateString()}.`
       );
       return;
     }
 
-    // Calculate total price
+    // calculam pretul total al rezervarii
     const timeDiff = Math.abs(
       new Date(completeFormData.checkOutDate) -
         new Date(completeFormData.checkInDate)
     );
-    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    const totalPrice = daysDiff * (dynamicPrices[completeFormData.room] || 0);
+    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // diferenta in zile
+    const totalPrice = daysDiff * (dynamicPrices[completeFormData.room] || 0); // calculam pretul final
     completeFormData.price = totalPrice;
 
-    // If payment method is card, redirect to payment page
+    // daca metoda de plata este card, navigam la pagina de plata
     if (formData.paymentMethod === "card") {
       navigate("/payment", { state: { ...completeFormData } });
     } else {
-      // Submit the booking
+      // altfel, trimitem datele rezervarii
       try {
         const response = await fetch("http://localhost:5000/api/book-now", {
           method: "POST",
@@ -181,7 +198,8 @@ const BookingFormContent = () => {
         });
         const data = await response.json();
         if (data.success) {
-          setSubmitMessage("Rezervarea ta a fost trimisă cu succes!");
+          setSubmitMessage("rezervarea ta a fost trimisa cu succes!"); // mesaj de succes
+          // resetam formularul dupa trimitere
           setFormData({
             firstName: "",
             lastName: "",
@@ -199,22 +217,23 @@ const BookingFormContent = () => {
             paymentMethod: "cash",
           });
         } else {
-          console.error("Error:", data.error);
+          console.error("Error:", data.error); // gestionam erorile
           setSubmitMessage(
-            "Trimiterea rezervării a eșuat. Te rugăm să încerci din nou."
+            "trimiterea rezervarii a esuat. te rugam sa incerci din nou."
           );
         }
       } catch (error) {
         console.error("Error:", error);
         setSubmitMessage(
-          "Trimiterea rezervării a eșuat. Te rugăm să încerci din nou."
+          "trimiterea rezervarii a esuat. te rugam sa incerci din nou."
         );
       }
     }
   };
 
+  // functie pentru a verifica daca o data este deja rezervata
   const isDateBooked = (date) => {
-    const { room } = formData;
+    const { room } = formData; // obtinem camera selectata
     return bookedDates[room]?.some(
       (bookedDate) => bookedDate.toDateString() === date.toDateString()
     );
@@ -224,7 +243,7 @@ const BookingFormContent = () => {
     <div className="booking-form-wrapper">
       <form className="booking-form" onSubmit={handleSubmit}>
         <div className="booking-form-group">
-          <label>Nume</label>
+          <label>nume</label>
           <div style={{ display: "flex", gap: "10px" }}>
             <input
               type="text"
@@ -232,7 +251,7 @@ const BookingFormContent = () => {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              placeholder="Prenume"
+              placeholder="prenume"
               required
             />
             <input
@@ -241,37 +260,37 @@ const BookingFormContent = () => {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              placeholder="Nume de familie"
+              placeholder="nume de familie"
               required
             />
           </div>
         </div>
         <div className="booking-form-group">
-          <label>Adresă</label>
+          <label>adresa</label>
           <input
             type="text"
             className="form-control"
             name="address"
             value={formData.address}
             onChange={handleChange}
-            placeholder="Stradă, Număr, Oraș"
+            placeholder="strada, numar, oras"
             required
           />
         </div>
         <div className="booking-form-group">
-          <label>Email</label>
+          <label>email</label>
           <input
             type="email"
             className="form-control"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Ex: nume@exemplu.com"
+            placeholder="ex: nume@exemplu.com"
             required
           />
         </div>
         <div className="booking-form-group">
-          <label>Telefon</label>
+          <label>telefon</label>
           <div style={{ display: "flex", gap: "10px" }}>
             <input
               type="text"
@@ -279,7 +298,7 @@ const BookingFormContent = () => {
               name="phonePrefix"
               value={formData.phonePrefix}
               onChange={handleChange}
-              placeholder="Prefix"
+              placeholder="prefix"
               required
             />
             <input
@@ -288,13 +307,13 @@ const BookingFormContent = () => {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
-              placeholder="Număr de telefon"
+              placeholder="numar de telefon"
               required
             />
           </div>
         </div>
         <div className="booking-form-group">
-          <label>Data Check-In</label>
+          <label>data check-in</label>
           <DatePicker
             selected={formData.checkInDate}
             onChange={handleCheckInDateChange}
@@ -302,14 +321,14 @@ const BookingFormContent = () => {
             endDate={formData.checkOutDate}
             selectsStart
             locale="ro"
-            placeholderText="Selectează data"
+            placeholderText="selecteaza data"
             minDate={new Date()}
             filterDate={(date) => !isDateBooked(date)}
             className="form-control"
           />
         </div>
         <div className="booking-form-group">
-          <label>Data Check-Out</label>
+          <label>data check-out</label>
           <DatePicker
             selected={formData.checkOutDate}
             onChange={handleCheckOutDateChange}
@@ -317,14 +336,14 @@ const BookingFormContent = () => {
             endDate={formData.checkOutDate}
             selectsEnd
             locale="ro"
-            placeholderText="Selectează data"
+            placeholderText="selecteaza data"
             minDate={formData.checkInDate || new Date()}
             filterDate={(date) => !isDateBooked(date)}
             className="form-control"
           />
         </div>
         <div className="booking-form-group">
-          <label>Număr de Oaspeți</label>
+          <label>numar de oaspeti</label>
           <input
             type="number"
             className="form-control"
@@ -335,7 +354,7 @@ const BookingFormContent = () => {
           />
         </div>
         <div className="booking-form-group">
-          <label>Observații</label>
+          <label>observatii</label>
           <textarea
             className="form-control"
             name="message"
@@ -344,7 +363,7 @@ const BookingFormContent = () => {
           ></textarea>
         </div>
         <div className="booking-form-group">
-          <label>Cameră</label>
+          <label>camera</label>
           <select
             className="form-control"
             name="room"
@@ -359,20 +378,20 @@ const BookingFormContent = () => {
           </select>
         </div>
         <div className="booking-form-group">
-          <label>Metoda de Plată</label>
+          <label>metoda de plata</label>
           <select
             className="form-control"
             name="paymentMethod"
             value={formData.paymentMethod}
             onChange={handleChange}
           >
-            <option value="cash">Cash</option>
-            <option value="card">Card</option>
+            <option value="cash">cash</option>
+            <option value="card">card</option>
           </select>
         </div>
         <div className="booking-btn-container">
           <button type="submit" className="booking-btn">
-            Rezervă acum
+            rezerva acum
           </button>
         </div>
         {submitMessage && (

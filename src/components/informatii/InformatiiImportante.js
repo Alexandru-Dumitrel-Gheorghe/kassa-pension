@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import "./InformatiiImportante.css";
 
+// lista cu informatii importante si iconite asociate
 const importantInfo = [
   {
     icon: <FaCheck />,
@@ -48,8 +49,9 @@ const importantInfo = [
 ];
 
 const InformatiiImportante = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // starea pentru a gestiona deschiderea/închiderea secțiunii
 
+  // functie pentru a schimba starea de deschidere/inchidere
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
   };

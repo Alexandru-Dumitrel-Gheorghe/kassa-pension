@@ -1,37 +1,40 @@
 import React, { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { Button, Form, Row, Col } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom";
-import "./PaymentForm.css";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"; // importam elemente si hook-uri din Stripe pentru procesarea platilor
+import { Button, Form, Row, Col } from "react-bootstrap"; // importam componente din react-bootstrap pentru stilizare si structura
+import { useLocation, useNavigate } from "react-router-dom"; // hook-uri pentru navigare si locatia curenta
+import "./PaymentForm.css"; // importam stilurile pentru componenta de plata
 
 const PaymentForm = ({ handlePaymentSuccess }) => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const formData = location.state?.formData || {};
+  const stripe = useStripe(); // hook pentru a obtine obiectul stripe
+  const elements = useElements(); // hook pentru a obtine elementele stripe (ex. CardElement)
+  const location = useLocation(); // obtinem locatia curenta pentru a accesa datele trimise
+  const navigate = useNavigate(); // functie pentru navigare intre pagini
+  const formData = location.state?.formData || {}; // obtinem datele formularului din starea trimisa sau setam un obiect gol
 
-  const [email, setEmail] = useState(formData.email || "");
+  // initializam starea pentru campurile formularului si alte informatii
+  const [email, setEmail] = useState(formData.email || ""); // email-ul utilizatorului
   const [name, setName] = useState(
-    `${formData.firstName || ""} ${formData.lastName || ""}`
+    `${formData.firstName || ""} ${formData.lastName || ""}` // numele complet al utilizatorului
   );
-  const [errorMessage, setErrorMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [errorMessage, setErrorMessage] = useState(""); // mesajul de eroare daca apare
+  const [isLoading, setIsLoading] = useState(false); // indicator pentru incarcare
+  const [paymentMethod, setPaymentMethod] = useState("card"); // metoda de plata selectata (implicit "card")
 
+  // functie pentru a gestiona trimiterea formularului
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
+    event.preventDefault(); // prevenim reincarcarea paginii
+    setIsLoading(true); // setam indicatorul de incarcare
 
     if (paymentMethod === "card") {
       if (!stripe || !elements) {
-        setErrorMessage("Stripe has not loaded yet. Please try again.");
+        setErrorMessage("Stripe has not loaded yet. Please try again."); // mesaj de eroare daca stripe nu este incarcat
         setIsLoading(false);
         return;
       }
 
-      const cardElement = elements.getElement(CardElement);
+      const cardElement = elements.getElement(CardElement); // obtinem elementul de card din stripe
 
+      // cream metoda de plata cu stripe
       const { error, paymentMethod: stripePaymentMethod } =
         await stripe.createPaymentMethod({
           type: "card",
@@ -43,14 +46,14 @@ const PaymentForm = ({ handlePaymentSuccess }) => {
         });
 
       if (error) {
-        setErrorMessage(error.message);
+        setErrorMessage(error.message); // setam mesajul de eroare daca apare
         setIsLoading(false);
       } else {
-        handlePaymentSuccess(stripePaymentMethod.id);
+        handlePaymentSuccess(stripePaymentMethod.id); // apelam functia de succes cu id-ul metodei de plata
       }
     } else if (paymentMethod === "paypal") {
-      // Handle PayPal payment
-      navigate("/paypal-payment", { state: { formData } });
+      // gestionam plata cu PayPal
+      navigate("/paypal-payment", { state: { formData } }); // navigam la pagina de plata PayPal
     }
   };
 
@@ -65,7 +68,7 @@ const PaymentForm = ({ handlePaymentSuccess }) => {
       </Row>
       <Row className="mb-3">
         <Col>
-          <strong>Preț:</strong>
+          <strong>Pret:</strong>
         </Col>
         <Col>{formData.price} RON</Col>
       </Row>
@@ -90,7 +93,7 @@ const PaymentForm = ({ handlePaymentSuccess }) => {
         />
       </Form.Group>
       <Form.Group controlId="formPaymentMethod">
-        <Form.Label>Metodă de Plată</Form.Label>
+        <Form.Label>Metoda de Plata</Form.Label>
         <Form.Control
           as="select"
           value={paymentMethod}
@@ -123,7 +126,7 @@ const PaymentForm = ({ handlePaymentSuccess }) => {
       )}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <Button variant="primary" type="submit" disabled={isLoading}>
-        {isLoading ? "Processing..." : "Plătește Acum"}
+        {isLoading ? "Processing..." : "Plateste Acum"}
       </Button>
     </Form>
   );

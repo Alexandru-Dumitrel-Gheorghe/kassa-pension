@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
-import { FaWifi, FaUtensils, FaMountain, FaSpa, FaBath } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import "./RoomCardsSection.css";
+import { Container, Row, Col, Button, Carousel } from "react-bootstrap"; // importam componente din react-bootstrap pentru stilizare si layout
+import { FaWifi, FaUtensils, FaMountain, FaSpa, FaBath } from "react-icons/fa"; // importam iconite din react-icons pentru a reprezenta facilitatile
+import { useNavigate } from "react-router-dom"; // hook pentru navigare intre pagini
+import "./RoomCardsSection.css"; // importam stilurile pentru sectiunea de carduri de camere
 
+// definim camerele disponibile cu detalii despre acestea
 const rooms = [
   {
     title: "Camera Aur",
     description:
-      "Căutați cea mai luxoasă ședere la Hotelul Olimpic? Alegeți camera Aur și rezervați acum! Camera este perfectă pentru o escapadă romantică.",
+      "Cautati cea mai luxoasa sedere la Hotelul Olimpic? Alegeti camera Aur si rezervati acum! Camera este perfecta pentru o escapada romantica.",
     basePrice: 350,
     features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la munte"],
     images: [
@@ -19,7 +20,7 @@ const rooms = [
   {
     title: "Camera Argint",
     description:
-      "Bucurați-vă de șederea dvs. în Camera Argint, cu facilități moderne și o frumoasă vedere a Brașovului.",
+      "Bucurati-va de sederea dvs. in Camera Argint, cu facilitati moderne si o frumoasa vedere a Brasovului.",
     basePrice: 300,
     features: ["WiFi Gratuit", "Mic dejun inclus"],
     images: [
@@ -30,7 +31,7 @@ const rooms = [
   {
     title: "Camera Bronz",
     description:
-      "Camera Bronz oferă confort și stil, perfectă pentru o ședere scurtă în Brașov.",
+      "Camera Bronz ofera confort si stil, perfecta pentru o sedere scurta in Brasov.",
     basePrice: 250,
     features: ["WiFi Gratuit"],
     images: [
@@ -39,9 +40,9 @@ const rooms = [
     ],
   },
   {
-    title: "Camera Platină",
+    title: "Camera Platina",
     description:
-      "Răsfățați-vă în Camera Platină cu facilități premium și o vedere spectaculoasă.",
+      "Rasfatati-va in Camera Platina cu facilitati premium si o vedere spectaculoasa.",
     basePrice: 400,
     features: [
       "WiFi Gratuit",
@@ -57,12 +58,12 @@ const rooms = [
   {
     title: "Camera Diamant",
     description:
-      "Camera Diamant oferă un lux de neegalat și o vedere panoramică deosebită.",
+      "Camera Diamant ofera un lux de neegalat si o vedere panoramica deosebita.",
     basePrice: 450,
     features: [
       "WiFi Gratuit",
       "Mic dejun inclus",
-      "Vedere panoramică",
+      "Vedere panoramica",
       "Jacuzzi",
     ],
     images: [
@@ -73,9 +74,9 @@ const rooms = [
   {
     title: "Camera Perla",
     description:
-      "Camera Perla oferă un confort extraordinar și facilități moderne.",
+      "Camera Perla ofera un confort extraordinar si facilitati moderne.",
     basePrice: 270,
-    features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la oraș"],
+    features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la oras"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229622.jpg?k=ebaf1f0086be7c579375df1678302b0552dc528ede7854cc571b7966a40ad850&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229632.jpg?k=22c4c786d1734fff5a9fab4bb5ddd2be6c1a24f8770def966718a696a3236922&o=&hp=1",
@@ -84,9 +85,9 @@ const rooms = [
   {
     title: "Camera Rubin",
     description:
-      "Camera Rubin este ideală pentru cei care doresc un sejur de neuitat, cu facilități premium.",
+      "Camera Rubin este ideala pentru cei care doresc un sejur de neuitat, cu facilitati premium.",
     basePrice: 320,
-    features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la grădină"],
+    features: ["WiFi Gratuit", "Mic dejun inclus", "Vedere la gradina"],
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/553229640.jpg?k=9ef90112431b2592229bca2e09c5af87c41a7b17723ca30b74d73b719231afa9&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/557015582.jpg?k=687f7b8f75603c5ae056c60c1ed4160421a36cbf8bce05913db6ae84760cd8ee&o=&hp=1",
@@ -94,21 +95,23 @@ const rooms = [
   },
 ];
 
+// mapam facilitatile disponibile la iconite corespunzatoare
 const featureIcons = {
   "WiFi Gratuit": <FaWifi />,
   "Mic dejun inclus": <FaUtensils />,
   "Vedere la munte": <FaMountain />,
   "Acces la spa": <FaSpa />,
   Jacuzzi: <FaBath />,
-  "Vedere la oraș": <FaMountain />,
-  "Vedere panoramică": <FaMountain />,
-  "Vedere la grădină": <FaMountain />,
+  "Vedere la oras": <FaMountain />,
+  "Vedere panoramica": <FaMountain />,
+  "Vedere la gradina": <FaMountain />,
 };
 
 const RoomCardsSection = () => {
-  const navigate = useNavigate();
-  const [dynamicPrices, setDynamicPrices] = useState({});
+  const navigate = useNavigate(); // hook pentru a naviga intre pagini
+  const [dynamicPrices, setDynamicPrices] = useState({}); // starea pentru a stoca preturile dinamice ale camerelor
 
+  // efect pentru a prelua preturile dinamice la montarea componentei
   useEffect(() => {
     const fetchDynamicPrices = async () => {
       const response = await fetch("http://localhost:5000/api/bookings");
@@ -117,6 +120,7 @@ const RoomCardsSection = () => {
       const prices = {};
       const availability = {};
 
+      // calculam disponibilitatea fiecarei camere pe baza rezervarilor existente
       rooms.forEach((room) => {
         const roomBookings = bookings.filter(
           (booking) => booking.room === room.title
@@ -125,6 +129,7 @@ const RoomCardsSection = () => {
         availability[room.title] = roomBookings.length === 0;
       });
 
+      // ajustam pretul fiecarei camere pe baza disponibilitatii
       rooms.forEach((room) => {
         let priceIncrease = 0;
         rooms.forEach((r) => {
@@ -132,15 +137,16 @@ const RoomCardsSection = () => {
             priceIncrease += 0.02;
           }
         });
-        prices[room.title] = room.basePrice * (1 + priceIncrease);
+        prices[room.title] = room.basePrice * (1 + priceIncrease); // crestem pretul proportional cu cererea
       });
 
-      setDynamicPrices(prices);
+      setDynamicPrices(prices); // actualizam starea cu preturile calculate
     };
 
-    fetchDynamicPrices();
+    fetchDynamicPrices(); // apelam functia de preluare a preturilor dinamice
   }, []);
 
+  // functie pentru a naviga la pagina de rezervare a unei camere
   const handleBookNow = (roomTitle) => {
     navigate("/book-now", { state: { roomTitle } });
   };
@@ -179,12 +185,14 @@ const RoomCardsSection = () => {
               <p className="room-price">
                 {dynamicPrices[room.title]
                   ? `${dynamicPrices[room.title].toFixed(2)} RON/noapte`
-                  : "Calculating..."}
+                  : "Calculating..."}{" "}
+                {/* afisam pretul dinamic */}
               </p>
               <ul className="room-features">
                 {room.features.map((feature, idx) => (
                   <li key={idx}>
-                    {featureIcons[feature]} {feature}
+                    {featureIcons[feature]} {feature}{" "}
+                    {/* afisam facilitatile cu iconite */}
                   </li>
                 ))}
               </ul>
@@ -192,7 +200,7 @@ const RoomCardsSection = () => {
                 className="book-button"
                 onClick={() => handleBookNow(room.title)}
               >
-                BOOK THIS ROOM
+                BOOK THIS ROOM {/* buton pentru a rezerva camera */}
               </Button>
             </div>
           </Col>
